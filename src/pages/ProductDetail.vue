@@ -10,18 +10,23 @@
                 <div class="row">
                     <div class="col-lg-6 pe-xl-5">
                         <div class="item-detail-content">
-                            <div class="item-detail-img-container mb-4 d-flex">
-                                <swiper
-                                    :slides-per-view="3"
-                                    :space-between="50"
-                                    @swiper="onSwiper"
-                                    @slideChange="onSlideChange"
-                                >
-                                    <swiper-slide>Slide 1</swiper-slide>
-                                    <swiper-slide>Slide 2</swiper-slide>
-                                    <swiper-slide>Slide 3</swiper-slide>
-                                    ...
-                                </swiper>
+                            <div class="item-detail-img-container mb-4">
+                                <div class="swiper mySwiper2">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" v-for="n in 3" :key="n">
+                                            <img :src="imgLg" alt="" class="w-100 rounded-3">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                <div thumbsSlider="" class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" v-for="n in 3" :key="n" >
+                                            <img :src="imgLg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div><!-- end item-detail-img-container -->
                             <div class="item-detail-tab">
                                 <ul class="nav nav-tabs nav-tabs-s1" id="myTab" role="tablist">
@@ -169,12 +174,11 @@
 //import ProductDetailSection from '@/components/section/Products'
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/swiper-bundle.css'
+import Swiper from 'swiper'
 
 export default {
-  name: 'ProductDetail',
-  data(){
+    name: 'ProductDetail',
+    data() {
         return{
             SectionData,
             id: this.$route.params.id,
@@ -184,23 +188,63 @@ export default {
             metaTextTwo: '',
             metaTextThree: '',
             content: '',
-         }
-    },
-    components: {
-        Swiper,
-        SwiperSlide,
+        }
     },
     mounted() {
-    SectionData.productData.products.forEach( element => {
-        if(this.id == element.id){
-            this.imgLg = element.imgLg;
-            this.title = element.title;
-            this.metaText = element.metaText;
-            this.metaTextTwo = element.metaTextTwo;
-            this.metaTextThree = element.metaTextThree;
-            this.content = element.content;
-        }
-    });
-  }
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+            swiper: swiper,
+            },
+        });
+        SectionData.productData.products.forEach( element => {
+            if(this.id == element.id){
+                this.imgLg = element.imgLg;
+                this.title = element.title;
+                this.metaText = element.metaText;
+                this.metaTextTwo = element.metaTextTwo;
+                this.metaTextThree = element.metaTextThree;
+                this.content = element.content;
+            }
+        });
+    },
 }
 </script>
+<style lang="scss">
+.mySwiper2 {
+    .swiper-button-prev, .swiper-button-next, .swiper-button-prev:hover, .swiper-button-next:hover {
+        background: transparent;
+        box-shadow: none;
+    }
+    .swiper-button-prev:hover.swiper-button-prev::after, .swiper-button-next:hover.swiper-button-next::after {
+        color: #000;
+    }
+    .swiper-button-prev::after, .swiper-button-next::after {
+        font-size: 25px;
+    }
+    .swiper-button-prev {
+        left: 20px;
+    }
+    .swiper-button-next {
+        right: 20px;
+    }
+}
+.mySwiper {
+    .thumb-img {
+        /* position: absolute; */
+        width: 100px;
+    }
+}
+</style>

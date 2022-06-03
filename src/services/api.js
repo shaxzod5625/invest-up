@@ -10,7 +10,7 @@ export default () => {
       "Access-Control-Allow-Methods": "OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
       "Access-Control-Allow-Credentials": true,
-      "Authorization": localStorage.getItem('token') ? localStorage.getItem('token') : ''
+      "Authorization": localStorage.getItem('token') ? `Bearer ${localStorage.getItem('token')}` : ''
     }
   })
 }
