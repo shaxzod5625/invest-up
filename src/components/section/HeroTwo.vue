@@ -9,8 +9,8 @@
                 </div><!-- end col-lg-5 -->
                 <div class="col-lg-6 col-md-6">
                     <div class="hero-content pb-0 pt-md-0 pe-lg-4">
-                        <h1 class="hero-title mb-4">{{ SectionData.heroDataTwo.title }}</h1>
-                        <p class="hero-text mb-4 pb-1">{{ SectionData.heroDataTwo.content }}</p>
+                        <h1 class="hero-title mb-4">Платформа привлечения финансов для стартапов</h1>
+                        <p class="hero-text mb-4 pb-1">Сбор денег для бизнеса, социальных, технологических и творческих проектов</p>
                         <!-- button group -->
                         <ButtonGroup :btns="btnDataThree" classname="hero-btns"></ButtonGroup>
                     </div><!-- hero-content -->
@@ -32,12 +32,12 @@ export default {
             btnDataThree: [
                 {
                     btnClass: 'btn-lg btn-primary',
-                    title: 'Изучать',
+                    title: 'Смотреть проекты',
                     path: 'explore'
                 },
                 {
                     btnClass: 'btn-lg btn-outline-dark',
-                    title: 'Создать',
+                    title: 'Создать проект',
                     path: 'create'
                 }
             ],

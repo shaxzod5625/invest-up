@@ -1,8 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+<<<<<<< HEAD
 import store from './store/index'
 
+=======
+import './axios'
+>>>>>>> 00e5c5ef6d8193852bb0bf5a3a3ae10de5abffd2
 // vue app
 const app = createApp(App);
 
