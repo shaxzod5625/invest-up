@@ -3,10 +3,14 @@ import Api from '@/services/api.js'
 export default {
   state: {
     companies: [],
+    company: {},
   },
   mutations: {
     setCompanies(state, companies) {
       state.companies = companies
+    },
+    setCompany(state, company) {
+      state.company = company
     }
   },
   actions: {
@@ -19,6 +23,14 @@ export default {
         throw e
       }
     },
-    getCompany()
+    async getCompany({ commit }, id) {
+      try {
+        const res = await Api().get(`/companies/${id}`)
+        commit('setCompany', res.data)
+      } catch (e) {
+        commit('error', e.response.data);
+        throw e
+      }
+    }
   }
 }
