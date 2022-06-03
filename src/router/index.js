@@ -111,9 +111,9 @@ const routes = [
     component: () => import('../pages/Register.vue')
   },
   {
-    path: '/offers',
-    name: 'Offer',
-    component: () => import('../pages/Offers.vue')
+    path: '/profile-cabinent',
+    name: 'ProfileCabinent',
+    component: () => import('../pages/ProfileCabinent.vue')
   },
   {
     path: '/activity-v2',
@@ -147,10 +147,10 @@ const routes = [
     component: () => import('../pages/DepositEnfties.vue')
   },
   {
-    path: '/profile',
-    name: 'profile',
-
-    component: () => import('../pages/Profile.vue')
+    path: '/ProfileCabinent',
+    name: 'ProfileCabinent',
+    meta: { auth: true },
+    component: () => import('../pages/ProfileCabinent.vue')
   },
   {
     path: '/account',

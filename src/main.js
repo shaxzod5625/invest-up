@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import '@axios'
+import store from './store/index'
 
 // vue app
 const app = createApp(App);
@@ -83,7 +83,7 @@ import RegisterSection from './components/section/RegisterSection.vue';
 import ContactSection from './components/section/ContactSection.vue';
 import GoogleMap from './components/common/GoogleMap.vue';
 import UserSidebar from './components/common/UserSidebar.vue';
-import OfferSection from './components/section/OfferSection.vue';
+import OfferSection from './components/section/ProfileCabinentSection.vue';
 import UserActivitySection from './components/section/UserActivitySection.vue'
 import PurchasesSaleSection from './components/section/PurchasesSaleSection.vue';
 import TransactionsSection from './components/section/TransactionsSection.vue';
@@ -170,4 +170,4 @@ app.component('SecuritySection', SecuritySection)
 app.component('ThemeSwitcher', ThemeSwitcher)
 
 // vue app
-app.use(router).mount('#app')
+app.use(router).use(store).mount('#app')

@@ -17,9 +17,12 @@
 import SectionData from '@/store/store.js'
 export default {
   name: 'Login',
-  data () {
-    return {
-      SectionData
+  data: () => ({
+    SectionData
+  }),
+  mounted() {
+    if (localStorage.getItem('token')) {
+      this.$router.push('/ProfileCabinent');
     }
   }
 }

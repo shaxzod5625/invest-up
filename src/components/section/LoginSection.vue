@@ -36,12 +36,16 @@
                         <span class="d-block my-4">— или войти с помощью —</span>
                         <ul class="btns-group d-flex">
                             <li class="flex-grow-1" v-for="(list, i) in SectionData.loginData.btns" :key="i">
-                                <router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni"
-                                        :class="list.icon"></em> {{ list.title }} </router-link>
+                                <router-link :to="list.path" class="btn d-block" :class="list.btnClass">
+                                    <em class="ni" :class="list.icon"></em>
+                                    {{ list.title }} 
+                                </router-link>
                             </li>
                         </ul>
-                        <p class="mt-3 form-text">Еще не создали аккаунт? <router-link
-                                :to="SectionData.loginData.btnTextLink" class="btn-link">Зарегистрирововаться
+                        <p class="mt-3 form-text">
+                            Еще не создали аккаунт?
+                            <router-link :to="SectionData.loginData.btnTextLink" class="btn-link">
+                                Зарегистрирововаться
                             </router-link>
                         </p>
                     </form>
@@ -56,13 +60,11 @@ import SectionData from '@/store/store.js'
 
 export default {
     name: 'LoginSection',
-    data() {
-        return {
-            SectionData,
-            email: '',
-            password: ''
-        }
-    },
+    data: () => ({
+        SectionData,
+        email: '',
+        password: ''
+    }),
     mounted() {
         /*  ======== Show/Hide passoword ======== */
         function showHidePassword(selector) {
@@ -88,10 +90,15 @@ export default {
     },
     methods: {
         async handleSubmit() {
-            await this.$store.dispatch('login', {
-                email: this.email,
-                password: this.password
-            });
+            try {
+                await this.$store.dispatch('login', {
+                    email: this.email,
+                    password: this.password
+                });
+                alert('success')
+            } catch (e) {
+                console.log(e);
+            }
             // await axios.post('http://10.0.100.159:8000/api/login', {
             //     email: this.email,
             //     password: this.password

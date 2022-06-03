@@ -95,10 +95,8 @@
 import SectionData from '@/store/store.js'
 export default {
   name: 'OfferSection',
-  data () {
-    return {
-      SectionData
-    }
-  }
+  data: () => ({
+    SectionData
+  })
 }
 </script>

@@ -2,18 +2,26 @@ import Api from '@/services/api.js'
 
 export default {
   mutations: {
-    setToken(state, token) {
-      localStorage.setItem('token', token)
+    setToken(state, data) {
+      localStorage.setItem('token', data.token)
     },
     removeToken() {
       localStorage.removeItem('token')
     }
   },
   actions: {
+    async register({ commit }, data) {
+      try {
+        const res = await Api().post('/register', data)
+        commit('setToken', res.data)
+      } catch (e) {
+        commit('error', e.response.data)
+      }
+    },
     async login({ commit }, user) {
       try {
-        await Api().post('/login', user);
-        commit('setToken', user);
+        const res = await Api().post('/login', user);
+        commit('setToken', res.data);
       } catch (e) {
         commit('error', e.response.data);
         throw e

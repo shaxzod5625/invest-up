@@ -22,6 +22,11 @@ export default {
     return {
       SectionData
     }
+  },
+  mounted() {
+    if (localStorage.getItem('token')) {
+      this.$router.push('/ProfileCabinent');
+    }
   }
 }
 </script>

@@ -10,21 +10,29 @@
                             <h2 class="mb-2" v-html=" SectionData.registerData.title"></h2>
                             <p>{{ SectionData.registerData.subTitle }}</p>
                         </div>
-                        <form action="#">
+                        <form action="#" @submit.prevent="submit">
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" id="fullName" placeholder="Name">
-                                <label for="fullName">Full name</label>
+                                <input type="text" class="form-control" v-model="name" id="name" placeholder="Name">
+                                <label for="name">First name</label>
                             </div><!-- end form-floating -->
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" id="userName" placeholder="Username">
+                                <input type="text" class="form-control" v-model="last_name" id="last_name" placeholder="Last name">
+                                <label for="last_name">Last name</label>
+                            </div><!-- end form-floating -->
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" v-model="username" id="userName" placeholder="Username">
                                 <label for="userName">Username</label>
                             </div><!-- end form-floating -->
                             <div class="form-floating mb-4">
-                                <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com">
+                                <input type="text" class="form-control" v-model="phone" id="phone" placeholder="Phone">
+                                <label for="Phone">Phone</label>
+                            </div><!-- end form-floating -->
+                            <div class="form-floating mb-4">
+                                <input type="email" class="form-control" v-model="email" id="emailAddress" placeholder="name@example.com">
                                 <label for="emailAddress">Email address</label>
                             </div><!-- end form-floating -->
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control password" id="password" placeholder="Password">
+                                <input type="password" class="form-control password" v-model="password" id="password" placeholder="Password">
                                 <label for="password">Password</label>
                                 <a href="password" class="password-toggle" title="Toggle show/hide pasword">
                                     <em class="password-shown ni ni-eye-off"></em>
@@ -50,35 +58,51 @@
 import SectionData from '@/store/store.js'
 export default {
   name: 'RegisterSection',
-  data () {
-    return {
-      SectionData
-    }
-  },
+  data: () => ({
+    SectionData,
+    name: '',
+    last_name: '',
+    username: '',
+    email: '',
+    password: '',
+  }),
   mounted () {
     /*  ======== Show/Hide passoword ======== */
     function showHidePassword(selector){
         let elem = document.querySelectorAll(selector);
         if(elem.length > 0){
             elem.forEach(item => {
-            item.addEventListener("click", function(e){
-                e.preventDefault();
-                let target = document.getElementById(item.getAttribute("href"));
-                if(target.type == "password") {
-                target.type = "text";
-                item.classList.add("is-shown");
-                }else{
-                target.type = "password";
-                item.classList.remove("is-shown");
-                }
-            });
-
+                item.addEventListener("click", function(e){
+                    e.preventDefault();
+                    let target = document.getElementById(item.getAttribute("href"));
+                    if(target.type == "password") {
+                    target.type = "text";
+                    item.classList.add("is-shown");
+                    }else{
+                    target.type = "password";
+                    item.classList.remove("is-shown");
+                    }
+                });
             });
         }
     }
-
     showHidePassword(".password-toggle");
-
+  },
+  methods: {
+    async submit() {
+        try {
+            await this.$store.dispatch('register', {
+                name: this.name,
+                last_name: this.last_name,
+                username: this.username,
+                email: this.email,
+                password: this.password,
+            });
+            console.log('success');
+        } catch (e) {
+            console.log(e);
+        }
+    } 
   }
 }
 </script>
