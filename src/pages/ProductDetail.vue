@@ -10,8 +10,18 @@
                 <div class="row">
                     <div class="col-lg-6 pe-xl-5">
                         <div class="item-detail-content">
-                            <div class="item-detail-img-container mb-4">
-                                <img :src="imgLg" alt="" class="w-100 rounded-3">
+                            <div class="item-detail-img-container mb-4 d-flex">
+                                <swiper
+                                    :slides-per-view="3"
+                                    :space-between="50"
+                                    @swiper="onSwiper"
+                                    @slideChange="onSlideChange"
+                                >
+                                    <swiper-slide>Slide 1</swiper-slide>
+                                    <swiper-slide>Slide 2</swiper-slide>
+                                    <swiper-slide>Slide 3</swiper-slide>
+                                    ...
+                                </swiper>
                             </div><!-- end item-detail-img-container -->
                             <div class="item-detail-tab">
                                 <ul class="nav nav-tabs nav-tabs-s1" id="myTab" role="tablist">
@@ -159,6 +169,8 @@
 //import ProductDetailSection from '@/components/section/Products'
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/swiper-bundle.css'
 
 export default {
   name: 'ProductDetail',
@@ -173,6 +185,10 @@ export default {
             metaTextThree: '',
             content: '',
          }
+    },
+    components: {
+        Swiper,
+        SwiperSlide,
     },
     mounted() {
     SectionData.productData.products.forEach( element => {

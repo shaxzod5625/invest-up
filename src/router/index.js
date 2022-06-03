@@ -4,48 +4,55 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    meta: { auth: false },
     component: () => import('../pages/Home.vue'),
   },
-  {
-    path: '/home-v2',
-    name: 'Home 2',
-    component: () => import('../pages/Home-v2.vue'),
-  },
-  {
-    path: '/home-v3',
-    name: 'Home 3',
-    component: () => import('../pages/Home-v3.vue')
-  },
+  // {
+  //   path: '/home-v2',
+  //   name: 'Home 2',
+  //   component: () => import('../pages/Home-v2.vue'),
+  // },
+  // {
+  //   path: '/home-v3',
+  //   name: 'Home 3',
+  //   component: () => import('../pages/Home-v3.vue')
+  // },
   {
     path:'/product-details-v1-:id',
     name:'ProductDetail',
+    meta: { auth: false },
     component: () => import('../pages/ProductDetail.vue'),
     props: true
   },
   {
     path:'/product-details-v2-:id',
     name:'ProductDetail_v2',
+    maeta: { auth: false },
     component: () => import('../pages/ProductDetail-v2.vue'),
     props: true
   },
   {
     path: '/item-details',
     name: 'itemDetails',
+    meta: { auth: false },
     component: () => import('../pages/ItemDetails.vue')
   },
   {
     path: '/item-details-v2',
     name: 'itemDetailsV2',
+    meta: { auth: false },
     component: () => import('../pages/ItemDetails-v2.vue')
   },
   {
     path: '/explore',
     name: 'explore',
+    meta: { auth: false },
     component: () => import('../pages/Explore.vue')
   },
   {
     path: '/author',
     name: 'author',
+    
     component: () => import('../pages/Author.vue')
   },
   {
@@ -136,56 +143,67 @@ const routes = [
   {
     path: '/deposit-enfties',
     name: 'deposit-enfties',
+
     component: () => import('../pages/DepositEnfties.vue')
   },
   {
     path: '/profile',
     name: 'profile',
+
     component: () => import('../pages/Profile.vue')
   },
   {
     path: '/account',
     name: 'account',
+    meta: { auth: true },
     component: () => import('../pages/Account.vue')
   },
   {
     path: '/payment-methods',
     name: 'payment-methods',
+    meta: { auth: true },
     component: () => import('../pages/PaymentMethods.vue')
   },
   {
     path: '/seller-settings',
     name: 'seller-settings',
+    meta: { auth: true },
     component: () => import('../pages/SellerSettings.vue')
   },
   {
     path: '/notifications',
     name: 'notifications',
+    meta: { auth: true },
     component: () => import('../pages/Notifications.vue')
   },
   {
     path: '/security',
     name: 'security',
+    meta: { auth: true },
     component: () => import('../pages/Security.vue')
   },
   {
     path: '/create',
     name: 'create',
+    meta: { auth: true },
     component: () => import('../pages/Create.vue')
   },
   {
     path: '/create-single',
     name: 'create-single',
+    meta: { auth: true },
     component: () => import('../pages/CreateSingle.vue')
   },
   {
     path: '/create-multiple',
     name: 'create-multiple',
+    meta: { auth: true },
     component: () => import('../pages/CreateMultiple.vue')
   },
   {
     path: '/contact',
     name: 'contact',
+    meta: { auth: false },
     component: () => import('../pages/Contact.vue')
   }
 ];
@@ -204,5 +222,20 @@ const router = createRouter({
     }
   }
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.auth)) {
+    if (localStorage.getItem('token')) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+  } else {
+    next()
+  }
+})
 
 export default router;
