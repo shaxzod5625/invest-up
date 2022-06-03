@@ -4,7 +4,8 @@
       <MenuList></MenuList>
       <!-- header btn -->
       <ul class="menu-btns">
-          <li><ButtonLink :text="SectionData.headerData.btnText" link="/wallet" classname="btn" :class="classname"></ButtonLink></li>
+          <li><ButtonLink :text="'Создать проект'" link="/wallet" classname="btn" :class="classname"></ButtonLink></li>
+          <li><ButtonLink :text="'Войти'" link="/login" class="btn btn-outline-dark"></ButtonLink></li>
           <li>
              <ThemeSwitcher></ThemeSwitcher>
           </li>
