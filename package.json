@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "InvestUp",
-=======
   "name": "InvestUP",
->>>>>>> 00e5c5ef6d8193852bb0bf5a3a3ae10de5abffd2
   "version": "1.0.0",
   "private": true,
   "scripts": {
