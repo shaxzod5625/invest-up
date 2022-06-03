@@ -13,11 +13,11 @@
         <section class="section-space trending-section bg-gray">
             <div class="container">
                 <!-- section heading -->
-                <SectionHeading :text="SectionData.productData.title" :content="SectionData.productData.content" isMargin="mb-3"></SectionHeading>
+                <SectionHeading :text="'Популярные проекты'" :content="''" isMargin="mb-3"></SectionHeading>
                 <!-- product -->
                 <ProductsContainer></ProductsContainer>
                 <div class="text-center mt-4 mt-md-5">
-                    <ButtonLink :text="SectionData.productData.btnText" :link="SectionData.productData.btnLink" classname="btn-link btn-link-s1"></ButtonLink>
+                    <ButtonLink :text="'Посмотреть все проекты'" :link="'explore'" classname="btn-link btn-link-s1"></ButtonLink>
                 </div>
             </div><!-- .container -->
         </section><!-- trending-section -->
