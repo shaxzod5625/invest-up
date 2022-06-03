@@ -11,6 +11,7 @@
           </li>
       </ul>
       <ul v-else class="menu-btns menu-btns-2">
+        <li><ButtonLink :text="'Создать проект'" link="/wallet" classname="btn" :class="classname"></ButtonLink></li>
         <li class="d-none d-lg-inline-block dropdown">
           <button type="button" class="icon-btn icon-btn-s1" data-bs-toggle="dropdown"><em class="ni ni-user"></em></button>
           <ul class="dropdown-menu card-generic card-generic-s3 dropdown-menu-end mt-2">
