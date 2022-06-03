@@ -10,7 +10,7 @@
                         <h2 class="mb-1">Добро пожаловать!</h2>
                         <p>Войдите в аккаунт чтобы продолжить</p>
                     </div>
-                    <form action="" @submit.prevent="handleSubmit()">
+                    <form action="" @submit.prevent="handleSubmit">
                         <div class="form-floating mb-4">
                             <input type="email" v-model="email" class="form-control" id="emailAddress"
                                 placeholder="name@example.com" required>
@@ -53,7 +53,6 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
-import axios from 'axios'
 
 export default {
     name: 'LoginSection',
@@ -85,35 +84,37 @@ export default {
                 });
             }
         }
-
         showHidePassword(".password-toggle");
-
     },
     methods: {
         async handleSubmit() {
-            await axios.post('http://10.0.100.159:8000/api/login', {
+            await this.$store.dispatch('login', {
                 email: this.email,
                 password: this.password
-            }).then((response) => {
-                if (response.status == 200) {
-                    alert('Success')
-                }
-            }).catch((error) => {
-                if (error.response) {
-                    // Request made and server responded
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    console.log(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log("Error", error.message);
-                }
-            }).finally(() => {
+            });
+            // await axios.post('http://10.0.100.159:8000/api/login', {
+            //     email: this.email,
+            //     password: this.password
+            // }).then((response) => {
+            //     if (response.status == 200) {
+            //         alert('Success')
+            //     }
+            // }).catch((error) => {
+            //     if (error.response) {
+            //         // Request made and server responded
+            //         console.log(error.response.data);
+            //         console.log(error.response.status);
+            //         console.log(error.response.headers);
+            //     } else if (error.request) {
+            //         // The request was made but no response was received
+            //         console.log(error.request);
+            //     } else {
+            //         // Something happened in setting up the request that triggered an Error
+            //         console.log("Error", error.message);
+            //     }
+            // }).finally(() => {
                 
-            })
+            // })
         }
     },
 }
