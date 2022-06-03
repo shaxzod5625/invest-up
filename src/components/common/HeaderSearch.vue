@@ -1,6 +1,6 @@
 <template>
     <div class="header-search-form" :class="classname">
-        <input type="search" class="form-control form-control-s1" :placeholder="[[ SectionData.headerData.inputPlaceholderText ]]">
+        <input type="search" class="form-control form-control-s1" :placeholder="[[ 'Поиск проектов' ]]">
     </div>
 </template>
 <script>

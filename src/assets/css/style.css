@@ -121,7 +121,7 @@ html {
   font-size: 1rem; }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Raleway', sans-serif!important;
   color: #8091a7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -154,7 +154,7 @@ table {
   border-spacing: 0; }
 
 h1, h2, h3, .h1, .h2, .h3, h4, .h4, h5, h6, .h5, .h6 {
-  font-weight: 700;
+  font-weight: 800;
   color: #1c2b46; }
 
 h1, h2, h3, h4, h5, h6, p {
