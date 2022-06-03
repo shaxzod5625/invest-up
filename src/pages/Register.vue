@@ -25,7 +25,7 @@ export default {
   },
   mounted() {
     if (localStorage.getItem('token')) {
-      this.$router.push('/ProfileCabinent');
+      this.$router.push('/');
     }
   }
 }

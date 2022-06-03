@@ -12,7 +12,7 @@
                         </div>
                         <form action="#" @submit.prevent="submit">
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" v-model="name" id="name" placeholder="Name">
+                                <input type="text" class="form-control" v-model="first_name" id="name" placeholder="Name">
                                 <label for="name">First name</label>
                             </div><!-- end form-floating -->
                             <div class="form-floating mb-4">
@@ -24,7 +24,7 @@
                                 <label for="userName">Username</label>
                             </div><!-- end form-floating -->
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" v-model="phone" id="phone" placeholder="Phone">
+                                <input type="number" class="form-control" v-model="phone" id="phone" placeholder="Phone">
                                 <label for="Phone">Phone</label>
                             </div><!-- end form-floating -->
                             <div class="form-floating mb-4">
@@ -60,11 +60,12 @@ export default {
   name: 'RegisterSection',
   data: () => ({
     SectionData,
-    name: '',
+    first_name: '',
     last_name: '',
     username: '',
     email: '',
     password: '',
+    phone: ''
   }),
   mounted () {
     /*  ======== Show/Hide passoword ======== */
@@ -92,13 +93,15 @@ export default {
     async submit() {
         try {
             await this.$store.dispatch('register', {
-                name: this.name,
+                first_name: this.first_name,
                 last_name: this.last_name,
                 username: this.username,
                 email: this.email,
+                phone: this.phone,
                 password: this.password,
+                password_confirmation: this.password,
             });
-            console.log('success');
+            this.$router.push('/')
         } catch (e) {
             console.log(e);
         }
