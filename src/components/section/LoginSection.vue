@@ -95,7 +95,7 @@ export default {
                     email: this.email,
                     password: this.password
                 });
-                alert('success')
+                this.$router.push('/')
             } catch (e) {
                 console.log(e);
             }

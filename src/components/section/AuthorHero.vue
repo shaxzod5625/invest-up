@@ -13,7 +13,7 @@
                                     <div class="d-flex align-items-center" v-if="isCopyInput">
                                         <input type="text" class="copy-input text-white" v-model="message" id="copy-input" readonly>
                                         <div class="tooltip-s1">
-                                            <button v-clipboard:copy="message" v-clipboard:success="onCopy"  class="copy-text text-white ms-2" type="button">
+                                            <button v-clipboard:copy="message" v-clipboard:success="onCopy" class="copy-text text-white ms-2" type="button">
                                                 <span class="tooltip-s1-text tooltip-text">Copy</span>
                                                 <em class="ni ni-copy"></em>
                                             </button>
@@ -21,7 +21,6 @@
                                     </div>
                                 </div><!-- author-hero-conetent -->
                                 <div class="hero-action-wrap d-flex align-items-center my-2">
-                                    <router-link :to="btnlink" class="btn btn-light">{{ btntext }}</router-link>
                                     <div class="dropdown ms-3" v-if="isDropdown">
                                         <a class="icon-btn icon-btn-s1" href="#" data-bs-toggle="dropdown" id="reportDropdown">
                                             <em class="ni ni-more-h"></em>
