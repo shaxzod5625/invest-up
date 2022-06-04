@@ -4,6 +4,7 @@ export default {
   state: {
     projects: [],
     project: {},
+    projectId: null
   },
   getters: {
     getProjects(state) {
@@ -11,6 +12,9 @@ export default {
     },
     getProject(state) {
       return state.project;
+    },
+    getProjectId(state) {
+      return state.projectId;
     }
   },
   mutations: {
@@ -19,6 +23,9 @@ export default {
     },
     setProject(state, project) {
       state.project = project
+    },
+    setProjectId(state, data) {
+      state.project_id = data.id
     }
   },
   actions: {
@@ -56,6 +63,27 @@ export default {
       try {
         const res = await Api().post(`/project/${payload.alias}/comments/add`, payload)
         commit('setProject', res.data)
+      } catch (e) {
+        commit('error', e.response.data);
+        throw e
+      }
+    },
+    async addProject({ commit }, project) {
+      try {
+        const res = await Api().post('/project/add', project, {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
+        })
+        commit('setProjectId', res.data)
+      } catch (e) {
+        commit('error', e.response.data);
+        throw e
+      }
+    },
+    async createPlan({ commit }, payload) {
+      try {
+        await Api().post(`/project/plans/add`, payload)
       } catch (e) {
         commit('error', e.response.data);
         throw e
