@@ -25,26 +25,23 @@
                                     </div><!-- end tab-pane -->
                                     <div class="tab-pane fade" id="bids" role="tabpanel" aria-labelledby="bids-tab">
                                         <div class="item-detail-tab-wrap">
-                                            <div class="card-media card-media-s2 mb-3" v-for="item in SectionData.itemDetailData.itemDetailBidsList" :key="item.id">
-                                                <router-link :to="item.path" class="card-media-img flex-shrink-0 d-block">
-                                                    <img :src="item.avatar" alt="avatar">
-                                                </router-link>
-                                                <div class="card-media-body text-truncate">
-                                                    <p class="fw-semibold text-black text-truncate">{{ item.title }}</p>
-                                                    <p class="small">{{ item.date }}</p>
-                                                </div>
-                                            </div><!-- end card -->
+                                            <Comments class="mb-5"></Comments>
                                         </div><!-- end item-detail-tab-wrap -->
                                     </div><!-- end tab-pane -->
                                     <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
-                                        <div class="item-detail-tab-wrap">
+                                        <div class="item-detail-tab-wrap" v-if="project.sponsors">
                                             <div class="card-media card-media-s2 mb-3" v-for="item in project.sponsors" :key="item.id">
-                                                <router-link :to="item.path" class="card-media-img flex-shrink-0 d-block">
-                                                    <img :src="item.image" alt="avatar">
-                                                </router-link>
+                                                <img :src="item.image" alt="avatar">
                                                 <div class="card-media-body text-truncate">
                                                     <p class="fw-semibold text-black text-truncate">{{ item.first_name }} {{ last_name }}</p>
                                                     <p class="small text-truncate">{{ item.email }}</p>
+                                                </div>
+                                            </div><!-- end card -->
+                                        </div><!-- end item-detail-tab-wrap -->
+                                        <div class="item-detail-tab-wrap" v-else>
+                                            <div class="card-media card-media-s2 mb-3">
+                                                <div class="card-media-body text-truncate">
+                                                    <p class="fw-semibold text-black text-truncate">Спонсоров нет</p>
                                                 </div>
                                             </div><!-- end card -->
                                         </div><!-- end item-detail-tab-wrap -->
@@ -107,6 +104,7 @@
                         </div><!-- end item-detail-content -->
                     </div><!-- end col -->
                 </div><!-- end row -->
+                <Form class="mt-4"></Form>
             </div><!-- .container -->
              <!-- Modal -->
             <div class="modal fade" id="placeBidModal" tabindex="-1" aria-hidden="true">
