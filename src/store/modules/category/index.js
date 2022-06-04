@@ -22,7 +22,7 @@ export default {
     }
   },
   actions: {
-    async fetchAllCategories({ commit }) {
+    async fetchCategories({ commit }) {
       try {
         const res = await Api().get('/categories')
         commit('setCategories', res.data)
@@ -31,9 +31,9 @@ export default {
         throw e
       }
     },
-    async fetchCategory({ commit }, name) {
+    async fetchCategory({ commit }, alias) {
       try {
-        const res = await Api().get(`/categories/${name}`)
+        const res = await Api().get(`/category/${alias}`)
         commit('setCategory', res.data)
       } catch (e) {
         commit('error', e.response.data);
