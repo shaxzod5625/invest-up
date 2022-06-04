@@ -6,7 +6,7 @@
                             <div class="footer-item mb-5 mb-lg-0">
                                 <!-- logo link -->
                                 <LogoLink class="footer-logo-link"></LogoLink>
-                                <p class="my-4 footer-para" v-if="SectionData.footerData.content">{{ SectionData.footerData.content }}</p>
+                                <p class="my-4 footer-para" v-if="SectionData.footerData.content">Платформа причлечения инвестикй и поддержки для вашего стартапа</p>
                                 <ul class="styled-icon">
                                     <li><a href="#"><em class="icon ni ni-twitter"></em></a></li>
                                     <li><a href="#"><em class="icon ni ni-facebook-f"></em></a></li>
@@ -31,7 +31,7 @@
                 </div>
                 <hr class="bg-white-slim my-0">
                 <div class="copyright-wrap d-flex flex-wrap py-3 align-items-center justify-content-between">
-                    <p class="footer-copy-text py-2" v-html="SectionData.copyTitle"></p>
+                    <p class="footer-copy-text py-2" v-html="'Copyright © 2022 Invest UP'"></p>
                    <ul class="list-item list-item-s1 list-item-inline">
                         <li v-for="(list, i) in SectionData.footerData.footerListTwo" :key="i"><router-link :to="list.path">{{ list.title }}</router-link></li>
                     </ul>

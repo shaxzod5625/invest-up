@@ -3,15 +3,18 @@
   <section class="section-space-b feature-section">
     <div class="container">
       <!-- section heading -->
-      <SectionHeading :text="'Популярные проекты'" :content="''"
+      <SectionHeading :text="'Популярные кампании'" :content="''"
         isMargin="mb-3"></SectionHeading>
       <div class="row g-gs">
-        <div class="col-sm-6 col-md-6 col-lg-3" v-for="item in SectionData.featuredData.featuredList" :key="item.id">
-          <router-link :to="item.path" class="card card-full">
-            <img :src="item.img" class="card-img-top" alt="featured miage">
+        <div class="col-sm-6 col-md-6 col-lg-3" v-for="company in companies" :key="company.id">
+          <router-link :to="{
+                name: 'company',
+                params: { alias: company.alias },
+            }" class="card card-full">
+            <img :src="company.image" class="card-img-top" alt="featured miage">
             <div class="card-body p-4">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <p class="small">{{ item.content }}</p>
+              <h5 class="card-title">{{ company.title }}</h5>
+              <p class="small">{{ company.address }}</p>
             </div><!-- end card-body -->
           </router-link><!-- end card -->
         </div><!-- end col -->
@@ -28,8 +31,17 @@ export default {
   data() {
     return {
       SectionData,
+      companies: []
     }
   },
-  
+  methods: {
+    async getCompanies() {
+      await this.$store.dispatch('fetchCompanies')
+      this.companies = this.$store.getters.getCompanies
+    }
+  },
+  mounted () {
+    this.getCompanies()
+  },
 }
 </script>

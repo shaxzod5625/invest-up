@@ -2,7 +2,7 @@
   <section class="category-section" :class="classname">
             <div class="container">
                 <!-- section heading -->
-                <SectionHeading :text="SectionData.categoryData.title" :content="SectionData.categoryData.content" isMargin="mb-3"></SectionHeading>
+                <SectionHeading :text="'Поиск по категории'" :content="'Ищите проекты и стартапы по категориям'" isMargin="mb-3"></SectionHeading>
                 <div class="row g-gs">
                     <div class="col-lg-3 col-6" v-for="item in SectionData.categoryData.categoryList" :key="item.id">
                         <router-link :to="item.path" class="card card-cat text-center h-100" :class="item.class">
