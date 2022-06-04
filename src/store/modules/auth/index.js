@@ -29,12 +29,14 @@ export default {
     },
     async logout({ commit }) {
       try {
-        await Api().post('/logout', {
-          token: localStorage.getItem('token')
-        });
+        await Api().post('/logout', {});
         commit('removeToken');
       } catch (e) {
         commit('error', e.response.data);
+        if (e.response.status === 401) {
+          commit('removeToken');
+          window.location.href = '/login';
+        }
         throw e
       }
     }
