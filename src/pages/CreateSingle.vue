@@ -21,7 +21,7 @@
                                 <h5 class="mb-3">Upload file</h5>
                                 <div class="file-upload-wrap">
                                     <p class="file-name mb-4" id="file-name">PNG, GIF, WEBP, MP4 or MP3. Max 100mb.</p>
-                                    <input @change="onFileChange" ref="fileInput" accept=".jpg, .png, .jpeg, |image/*"  id="file-upload" class="file-upload-input" data-target="file-name" type="file" hidden>
+                                    <input @change="onFileChange" ref="fileInput1" accept=".jpg, .png, .jpeg, |image/*"  id="file-upload" class="file-upload-input" data-target="file-name" type="file" hidden>
                                     <label for="file-upload" class="input-label btn btn-primary">Choose File</label>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                 <h5 class="mb-3">Upload file</h5>
                                 <div class="file-upload-wrap">
                                     <p class="file-name mb-4" id="file-name">PNG, GIF, WEBP, MP4 or MP3. Max 100mb.</p>
-                                    <input @change="onFileChange2" ref="fileInput" accept=".jpg, .png, .jpeg, |image/*"  id="file-upload" class="file-upload-input" data-target="file-name" type="file" hidden>
+                                    <input @change="onFileChange2" ref="fileInput2" accept=".jpg, .png, .jpeg, |image/*"  id="file-upload" class="file-upload-input" data-target="file-name" type="file" hidden>
                                     <label for="file-upload" class="input-label btn btn-primary">Choose File</label>
                                 </div>
                             </div>
@@ -73,13 +73,17 @@
                                     <label class="mb-2 form-label">Content</label>
                                     <textarea name="message" v-model="project.content" class="form-control form-control-s1" placeholder="e. g. After purchasing you’ll be able to get the real T-Shirt"></textarea>
                                 </div>
+                                <div class="mb-4">
+                                    <label class="mb-2 form-label">Description</label>
+                                    <textarea name="message" v-model="project.description" class="form-control form-control-s1" placeholder="e. g. After purchasing you’ll be able to get the real T-Shirt"></textarea>
+                                </div>
                             </div>
-                            <button class="btn btn-primary" type="button">Create project</button>
+                            <button class="btn btn-primary" type="submit">Create project</button>
                         </form>
                     </div>
                     <div class="col-lg-8" v-if="currentStep === 3">
-                        <form action="" class="form-create-tab-wrap row" @submit.prevent="submit">
-                            <div class="" v-for="item in plan" :key="item.id">
+                        <form action="" class="form-create-tab-wrap" @submit.prevent="submit">
+                            <div class="row p-2 my-4" v-for="item in plans" :key="item.id" style="box-shadow: 0 1px 10px rgb(24 24 24 / 7%);">
                                 <div class="form-item mb-4 col-md-6">
                                     <label class="mb-2 form-label">Title</label>
                                     <input type="text" class="form-control form-control-s1" v-model="item.title" placeholder="e. g. Redeemable T-Shirt with logo">
@@ -95,8 +99,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button @click.prevent="addPlan" class="btn btn-primary mb-2" type="button">Add plan</button>
-                            <button class="btn btn-primary d-inline" style="width: max-content; margin-left: auto;" type="submit">Submit</button>
+                            <button @click.prevent="addPlan" class="btn btn-outline-dark mb-3" type="button">Add plan</button>
+                            <button class="btn btn-primary d-block" type="submit">Submit</button>
                         </form>
                     </div>
                 </div><!-- row-->
@@ -121,23 +125,25 @@ export default {
         title: ''
     },
     // fields: [{ first: '',last: '' }],
-    project: [{
+    project: {
         options: [],
         image: '',
         title: '',
         selected: 'Select Collection',
         target: '',
         deadline: '',
-        content: ''
-    }],
-    plan: [
+        content: '',
+        description: ''
+    },
+    plans: [
         {
             title: '',
             price: '',
-            content: ''
+            content: '',
+            project_id: 1
         }
     ],
-    currentStep: 1,
+    currentStep: 3,
   }),
   mounted () {
     /*  ============== Unlock once purchased Checkbox switcher ============= */
@@ -160,60 +166,50 @@ export default {
     this.fetchCategory();
   },
   methods: {
-    onFileChange(e) {
-        let files = e.target.files || e.dataTransfer.files;
-        if (!files.length)
-            return;
-        this.company.image = files[0];
+    onFileChange() {
+        this.company.image = this.$refs.fileInput1.files[0];
     },
-    onFileChange2(e) {
-        let files = e.target.files || e.dataTransfer.files;
-        if (!files.length)
-            return;
-        this.project.image = files[0];
+    onFileChange2() {
+        this.project.image = this.$refs.fileInput2.files[0];
     },
     async fetchCategory() {
         await this.$store.dispatch('fetchAllCategories');
         this.project.options = this.$store.getters.getCategories;
     },
     async step1() {
-        await this.$store.dispatch('addCompany', {
-            title: this.company.title,
-            address: this.company.address,
-            phone: this.company.number,
-            image: new FormData(this.company.image),
-        });
+        const form = new FormData();
+        form.append('image', this.company.image, this.company.image.name);
+        form.append('phone', this.company.number);
+        form.append('address', this.company.address);
+        form.append('title', this.company.title);
+        await this.$store.dispatch('addCompany', form);
         this.currentStep = 2;
     },
     async step2() {
-        await this.$store.dispatch('createProject', {
-            title: this.project.title,
-            image: new FormData(this.project.image),
-            category_id: this.project.options[this.project.selected].id,
-            target: this.project.target,
-            company_id: this.$store.getters.getCompanyId,
-            deadline: this.project.deadline,
-            content: this.project.content,
-        });
+        const form = new FormData();
+        form.append('image', this.project.image, this.project.image.name);
+        form.append('title', this.project.title);
+        form.append('target', this.project.target);
+        form.append('deadline', this.project.deadline);
+        form.append('description', this.project.description);
+        form.append('content', this.project.content);
+        form.append('category_id', this.project.selected.id);
+        form.append('company_id', this.$store.getters.getCompanyId);
+        await this.$store.dispatch('addProject', form);
         this.currentStep = 3;
     },
     addPlan() {
-        this.project.push({
-            options: this.$store.getters.getCategories,
-            image: '',
+        this.plans.push({
             title: '',
-            selected: 'Select Collection',
-            target: '',
-            deadline: '',
-            content: ''
+            price: '',
+            content: '',
+            // project_id: this.$store.getters.getProjectId
+            project_id: 1
         });
     },
     async submit() {
         await this.$store.dispatch('createPlan', {
-            title: this.plan_title,
-            price: this.plan_price,
-            content: this.plan_content,
-            project_id: this.$store.getters.getProjectId,
+            plans: this.plans
         });
         this.currentStep = 1;
     }
