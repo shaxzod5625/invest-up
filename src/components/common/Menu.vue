@@ -4,11 +4,15 @@
       <MenuList></MenuList>
       <!-- header btn -->
       <ul class="menu-btns" v-if="!token">
-          <li><ButtonLink :text="'Создать проект'" link="/wallet" classname="btn" :class="classname"></ButtonLink></li>
-          <li><ButtonLink :text="'Войти'" link="/login" class="btn btn-outline-dark"></ButtonLink></li>
-          <li>
-             <ThemeSwitcher></ThemeSwitcher>
-          </li>
+        <li>
+          <ButtonLink :text="'Создать проект'" link="/wallet" classname="btn" :class="classname"></ButtonLink>
+        </li>
+        <li>
+          <ButtonLink :text="'Войти'" link="/login" class="btn btn-outline-dark"></ButtonLink>
+        </li>
+        <li>
+          <ThemeSwitcher></ThemeSwitcher>
+        </li>
       </ul>
       <ul v-else class="menu-btns menu-btns-2">
         <li><ButtonLink :text="'Создать проект'" link="/wallet" classname="btn" :class="classname"></ButtonLink></li>

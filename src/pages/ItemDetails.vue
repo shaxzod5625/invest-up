@@ -15,17 +15,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   name: 'ItemDetails',
-  computed: {
-    ...mapState([
-      'project',
-    ])
-  },
-   mounted () {
-    this.$store.dispatch('getProject', this.$router.currentRoute.params.id)
+  data: () => ({
+    project: {}
+  }),
+  async mounted () {
+    await this.$store.dispatch('getProject', this.$route.params.alias)
+    this.project = this.$store.state.project
   },
 }
 </script>
