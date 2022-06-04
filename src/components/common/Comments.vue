@@ -1,6 +1,6 @@
 <template>
     <ul class="comments">
-        <li v-for="item in SectionData.commentData.commentList" :key="item.id">
+        <li v-for="item in comments" :key="item.id">
             <div class="comment">
                 <div class="avatar flex-shrink-0 me-3">
                     <img :src="item.img" alt="">
@@ -8,8 +8,8 @@
                 <div class="comment-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="me-2">
-                            <h5 class="comment-title">{{ item.title }}</h5>
-                            <span class="comment-meta">{{ item.date }}</span>
+                            <h5 class="comment-title">{{ item.user.first_name }} {{ item.user.last_name }}</h5>
+                            <span class="comment-meta">{{ item.created_at }}</span>
                         </div>
                     </div>
                     <p class="comment-desc mt-2">{{ item.content }}</p>
@@ -24,6 +24,7 @@ import SectionData from '@/store/store.js'
 
 export default {
   name: 'Comments',
+  props: ['comments'],
   data () {
     return {
       SectionData

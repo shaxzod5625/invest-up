@@ -51,6 +51,15 @@ export default {
         commit('error', e.response.data);
         throw e
       }
+    },
+    async postComment({ commit }, payload) {
+      try {
+        const res = await Api().post(`/project/${payload.alias}/comments/add`, payload)
+        commit('setProject', res.data)
+      } catch (e) {
+        commit('error', e.response.data);
+        throw e
+      }
     }
   }
 }

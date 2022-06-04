@@ -25,7 +25,7 @@
                                     </div><!-- end tab-pane -->
                                     <div class="tab-pane fade" id="bids" role="tabpanel" aria-labelledby="bids-tab">
                                         <div class="item-detail-tab-wrap">
-                                            <Comments class="mb-5"></Comments>
+                                            <Comments class="mb-5" :comments="project.comments"></Comments>
                                         </div><!-- end item-detail-tab-wrap -->
                                     </div><!-- end tab-pane -->
                                     <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
@@ -104,7 +104,12 @@
                         </div><!-- end item-detail-content -->
                     </div><!-- end col -->
                 </div><!-- end row -->
-                <Form class="mt-4"></Form>
+                <div v-if="token">
+                    <Form @refresh="refresh" class="mt-4"></Form>
+                </div>
+                <div class="item-detail-text" v-else>
+                    Комментарии могут отправлять только авторизованные пользователи.
+                </div>
             </div><!-- .container -->
              <!-- Modal -->
             <div class="modal fade" id="placeBidModal" tabindex="-1" aria-hidden="true">
@@ -142,23 +147,28 @@
 import SectionData from '@/store/store.js'
 
 export default {
-  name: 'ItemDetailSection',
-  props: ['project'],
-  data () {
-    return {
-      SectionData
+    name: 'ItemDetailSection',
+    props: ['project'],
+    data: () => ({
+        SectionData,
+        token: ''
+    }),
+    mounted() {
+        this.token = localStorage.getItem('token')
+    },
+    methods: {
+        getDedline (dedline) {
+            let currebntDate = new Date();
+            let dedlineDate = new Date(dedline);
+            let diff = dedlineDate.getTime() - currebntDate.getTime();
+            let days = Math.abs(Math.floor(diff / (1000 * 60 * 60 * 24)))
+            let hours = Math.abs(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+            let minutes = Math.abs(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
+            return `${days} ${days > 1 ? 'дней' : 'день'} ${hours} часов ${minutes} минут`;
+        },
+        refresh () {
+            this.$emit('refresh')
+        }
     }
-  },
-methods: {
-    getDedline (dedline) {
-        let currebntDate = new Date();
-        let dedlineDate = new Date(dedline);
-        let diff = dedlineDate.getTime() - currebntDate.getTime();
-        let days = Math.abs(Math.floor(diff / (1000 * 60 * 60 * 24)))
-        let hours = Math.abs(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
-        let minutes = Math.abs(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
-        return `${days} ${days > 1 ? 'дней' : 'день'} ${hours} часов ${minutes} минут`;
-    }
-}
 }
 </script>
