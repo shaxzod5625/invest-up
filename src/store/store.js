@@ -3326,32 +3326,14 @@ let SectionData = {
         id: 1,
         class: 'active',
         icon: 'ni-edit',
-        title: 'Edit Profile',
+        title: 'Редактировать профиль',
         path: 'account'
       },
       {
         id: 2,
         icon: 'ni-money',
-        title: 'Payment Methods',
+        title: 'Способы оплаты',
         path: 'payment-methods'
-      },
-      {
-        id: 3,
-        icon: 'ni-user',
-        title: 'Seller Settings',
-        path: 'seller-settings'
-      },
-      {
-        id: 4,
-        icon: 'ni-bell',
-        title: 'Notifications',
-        path: 'notifications'
-      },
-      {
-        id: 5,
-        icon: 'ni-lock',
-        title: 'Security',
-        path: 'security'
       }
     ]
   },
@@ -3362,33 +3344,15 @@ let SectionData = {
       {
         id: 1,
         icon: 'ni-edit',
-        title: 'Edit Profile',
+        title: 'Редактировать профиль',
         path: 'account'
       },
       {
         id: 2,
         class: 'active',
         icon: 'ni-money',
-        title: 'Payment Methods',
+        title: 'Способы оплаты',
         path: 'payment-methods'
-      },
-      {
-        id: 3,
-        icon: 'ni-user',
-        title: 'Seller Settings',
-        path: 'seller-settings'
-      },
-      {
-        id: 4,
-        icon: 'ni-bell',
-        title: 'Notifications',
-        path: 'notifications'
-      },
-      {
-        id: 5,
-        icon: 'ni-lock',
-        title: 'Security',
-        path: 'security'
       }
     ]
   },
@@ -4265,21 +4229,15 @@ let SectionData = {
       {
         id: 1,
         isActive: 'active',
-        title: 'Edit Info',
+        title: 'Редактировать',
         slug: 'account-information-tab',
         bsTarget: '#account-information'
       },
       {
         id: 2,
-        title: 'Password',
+        title: 'Пароль',
         slug: 'change-password-tab',
         bsTarget: '#change-password'
-      },
-      {
-        id: 3,
-        title: 'Verify Profile',
-        slug: 'validate-profile-tab',
-        bsTarget: '#validate-profile'
       }
     ],
     // edit profile tab mobile

@@ -1,21 +1,30 @@
 <template>
-<div class="page-wrap">
+  <div class="page-wrap">
     <!-- header  -->
     <header class="header-section has-header-main">
-        <!-- Header main -->
-        <HeaderMain></HeaderMain>
-        <!-- hero -->
-        <HeroFour classname="hero-title" :title="'Все проекты'" :lists="SectionData.breadcrumbData.breadcrumbList.navList"></HeroFour>
+      <!-- Header main -->
+      <HeaderMain></HeaderMain>
+      <!-- hero -->
+      <HeroFour classname="hero-title" :title="'Все проекты'"
+        :lists="SectionData.breadcrumbData.breadcrumbList.navList"></HeroFour>
     </header>
     <!-- Explore section  -->
     <ExploreSection></ExploreSection>
+    <br>
+    <br>
+    <br>
+    <!-- Category  -->
+    <Category classname="section-space bg-gray"></Category>
+    <!-- Newsletter  -->
+    <Newsletter></Newsletter>
     <!-- top creators -->
-    <TopCreators></TopCreators>
+    <!-- <TopCreators></TopCreators> -->
     <!-- Collections -->
-    <Collections></Collections>
+    <!-- <Collections></Collections> -->
     <!-- Footer  -->
+    
     <Footer></Footer>
-</div><!-- end page-wrap -->
+  </div><!-- end page-wrap -->
 </template>
 
 <script>
@@ -28,7 +37,7 @@ export default {
   components: {
     HeroFour
   },
-  data () {
+  data() {
     return {
       SectionData
     }

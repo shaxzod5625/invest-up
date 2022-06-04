@@ -6,7 +6,7 @@
                             <div class="footer-item mb-5 mb-lg-0">
                                 <!-- logo link -->
                                 <LogoLink class="footer-logo-link"></LogoLink>
-                                <p class="my-4 footer-para" v-if="SectionData.footerData.content">Платформа причлечения инвестикй и поддержки для вашего стартапа</p>
+                                <p class="my-4 footer-para" v-if="SectionData.footerData.content">Платформа причлечения инвестиций и поддержки для вашего стартапа</p>
                                 <ul class="styled-icon">
                                     <li><a href="#"><em class="icon ni ni-twitter"></em></a></li>
                                     <li><a href="#"><em class="icon ni ni-facebook-f"></em></a></li>

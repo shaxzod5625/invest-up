@@ -9,6 +9,11 @@
     <ItemDetailSection @refresh="refresh" :project="project"></ItemDetailSection>
     <!-- Related product -->
     <RelatedProduct></RelatedProduct>
+
+    <!-- Category  -->
+        <Category classname="section-space bg-gray"></Category>
+        <!-- Newsletter  -->
+        <Newsletter></Newsletter>
     <!-- Footer  -->
     <Footer></Footer>
 </div><!-- end page-wrap -->
@@ -26,7 +31,7 @@ export default {
   methods: {
     async getProject() {
        await this.$store.dispatch('fetchProject', this.$route.params.alias)
-    this.project = this.$store.getters.getProject
+      this.project = this.$store.getters.getProject
     },
     refresh () {
          this.getProject()

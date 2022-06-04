@@ -1,6 +1,7 @@
 <template>
     <div class="header-search-form" :class="classname">
-        <input type="search" class="form-control form-control-s1" :placeholder="[[ 'Поиск проектов' ]]">
+    <form action="" @submit.prevent="handleSubmit()"></form>
+        <input type="search" v-model="text" class="form-control form-control-s1" placeholder="Поиск проектов">
     </div>
 </template>
 <script>
@@ -12,8 +13,18 @@ export default {
   props: ['classname'],
   data () {
     return {
-      SectionData
+      SectionData,
+      text: ''
     }
-  }
+  },
+  methods: {
+    handleSubmit() {
+      /* axios.get('search?query=' + this.searchContent) */
+      this.$router.push({
+        name: "SearchPage",
+        params: { query: this.text },
+      });
+    },
+  },
 }
 </script>
