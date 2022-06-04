@@ -15,67 +15,37 @@
                 <div class="tab-pane fade show active" id="account-information" role="tabpanel"
                     aria-labelledby="account-information-tab">
                     <div class="profile-setting-panel">
-                        <h5 class="mb-4">Edit Profile</h5>
+                        <h5 class="mb-4">Изменить профиль</h5>
                         <div class="d-flex align-items-center">
                             <div class="image-result-area avatar avatar-3">
                                 <img id="image-result" :src="require('@/images/thumb/avatar-9.jpg')" alt="">
                             </div>
                             <input class="upload-image" data-target="image-result" id="upload-image-file" type="file"
                                 hidden>
-                            <label for="upload-image-file" class="upload-image-label btn">Update Photo</label>
+                            <label for="upload-image-file" class="upload-image-label btn">Загрузить фото</label>
                         </div><!-- end d-flex -->
                         <div class="row mt-4">
                             <div class="col-lg-6 mb-3">
-                                <label for="displayName" class="form-label">Dispaly Name</label>
-                                <input type="text" id="displayName" class="form-control form-control-s1"
-                                    value="Kamran Ahmed">
+                                <label for="displayName" class="form-label">Имя</label>
+                                <input type="text" v-model="getUser.first_name" id="displayName" class="form-control form-control-s1">
                             </div><!-- end col -->
                             <div class="col-lg-6 mb-3">
-                                <label for="displayUserName" class="form-label">Username</label>
-                                <input type="text" id="displayUserName" class="form-control form-control-s1"
-                                    value="kamran_ahmed">
+                                <label for="displayUserName" class="form-label">Фамилия</label>
+                                <input type="text" v-model="getUser.last_name" id="displaySursName" class="form-control form-control-s1">
+                            </div><!-- end col -->
+                            <div class="col-lg-6 mb-3">
+                                <label for="displayUserName" class="form-label">Номер телефона</label>
+                                <input type="text" v-model="getUser.phone" id="displayPhone" class="form-control form-control-s1">
                             </div><!-- end col -->
                         </div><!-- end row -->
-                        <div class="mb-3">
-                            <label for="bio" class="form-label">Bio</label>
-                            <textarea class="form-control form-control-s1" placeholder="Leave a comment here"
-                                id="bio">I make art with the simple goal of giving you something pleasing to look at for a few seconds.</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="emailAddress" class="form-label">Email</label>
-                            <input type="email" id="emailAddress" class="form-control form-control-s1"
-                                value="kamran@gmail.com">
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 mb-3">
-                                <label for="facebookLink" class="form-label">Facebook Link</label>
-                                <input type="text" id="facebookLink" class="form-control form-control-s1"
-                                    value="https://facebook.com/">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="twitterLink" class="form-label">Twiiter Link</label>
-                                <input type="text" id="twitterLink" class="form-control form-control-s1"
-                                    value="https://twitter.com/">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="instagramLink" class="form-label">Instagram Link</label>
-                                <input type="text" id="instagramLink" class="form-control form-control-s1"
-                                    value="https://facebook.com/">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="webLink" class="form-label">Web Link</label>
-                                <input type="text" id="webLink" class="form-control form-control-s1"
-                                    value="https://kamran.bd.com/">
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                        <button class="btn btn-primary mt-3" type="button">Update Profile</button>
+                        <button class="btn btn-primary mt-3" type="button">Обновить профиль</button>
                     </div><!-- end profile-setting-panel -->
                 </div><!-- end tab-pane -->
                 <div class="tab-pane fade" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
                     <div class="profile-setting-panel">
                         <h5 class="mb-4">Change Password</h5>
                         <div class="mb-3">
-                            <label for="oldPassword" class="form-label">Old Password</label>
+                            <label for="oldPassword" class="form-label">Старый пароль</label>
                             <div class="position-relative">
                                 <input type="password" class="form-control form-control-s1" id="oldPassword"
                                     placeholder="Old password">
@@ -86,7 +56,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="newPassword" class="form-label">New Password</label>
+                            <label for="newPassword" class="form-label">Новый пароль</label>
                             <div class="position-relative">
                                 <input type="password" class="form-control form-control-s1" id="newPassword"
                                     placeholder="New password">
@@ -97,7 +67,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                            <label for="confirmNewPassword" class="form-label">Повторите новый пароль</label>
                             <div class="position-relative">
                                 <input type="password" class="form-control form-control-s1" id="confirmNewPassword"
                                     placeholder="Confirm new password">
@@ -107,30 +77,16 @@
                                 </a>
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-3" type="button">Update Password</button>
+                        <button class="btn btn-primary mt-3" type="button">Обновить пароль</button>
+                        <div>
+                            <input type="radio" id="radio">
+                            <label for="radio">
+                                
+                            </label>
+                        </div>
                     </div><!-- end profile-setting-panel -->
                 </div><!-- end tab-pane -->
-                <div class="tab-pane fade" id="validate-profile" role="tabpanel" aria-labelledby="validate-profile-tab">
-                    <div class="profile-setting-panel">
-                        <h5 class="mb-4">Verify your profile</h5>
-                        <p class="mb-3 fs-14">Verify your unique identity by linking your phone number with your
-                            account. Once your profile is validated, you will be approved to participate in all drops
-                            that require profile validation to purchase.</p>
-                        <p class="mb-4 fs-14">(Please note, profile validation is not 2fa and not used for security
-                            purposes.)</p>
-                        <hr class="my-4">
-                        <h6 class="mb-3 fw-semibold">Enter phone number to receive code</h6>
-                        <ul class="btns-group">
-                            <li>
-                                <input type="text" class="form-control form-control-s1 phone-number"
-                                    placeholder="Phone number">
-                            </li>
-                            <li>
-                                <button class="btn btn-primary" type="button">Submit</button>
-                            </li>
-                        </ul>
-                    </div><!-- end profile-setting-panel -->
-                </div><!-- end tab-pane -->
+
             </div><!-- end tab-content -->
         </div><!-- end profile-setting-panel-wrap-->
     </div><!-- end col-lg-8 -->
@@ -139,6 +95,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
+import { mapGetters } from 'vuex';
 
 export default {
     name: 'AccountSection',
@@ -146,6 +103,11 @@ export default {
         return {
             SectionData,
         }
+    },
+    computed: {
+        ...mapGetters([
+            'getUser',
+        ])
     },
     mounted() {
         /*===========SHOW UPLOADED IMAGE ================== */
