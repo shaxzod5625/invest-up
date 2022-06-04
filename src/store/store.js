@@ -3331,6 +3331,37 @@ let SectionData = {
       },
       {
         id: 2,
+        icon: 'ni-file-text',
+        title: 'Проекты',
+        path: 'profile-projects'
+      },
+      {
+        id: 2,
+        icon: 'ni-money',
+        title: 'Способы оплаты',
+        path: 'payment-methods'
+      }
+    ]
+  },
+  // payment method sidebar
+  projectsSidebarData: {
+    title: 'Profile Projects',
+    navList: [
+      {
+        id: 1,
+        icon: 'ni-edit',
+        title: 'Редактировать профиль',
+        path: 'account'
+      },
+      {
+        id: 2,
+        class: 'active',
+        icon: 'ni-file-text',
+        title: 'Проекты',
+        path: 'profile-projects'
+      },
+      {
+        id: 2,
         icon: 'ni-money',
         title: 'Способы оплаты',
         path: 'payment-methods'
@@ -3346,6 +3377,12 @@ let SectionData = {
         icon: 'ni-edit',
         title: 'Редактировать профиль',
         path: 'account'
+      },
+      {
+        id: 2,
+        icon: 'ni-file-text',
+        title: 'Проекты',
+        path: 'profile-projects'
       },
       {
         id: 2,

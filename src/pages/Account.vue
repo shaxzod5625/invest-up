@@ -33,7 +33,8 @@ export default {
   name: 'Account',
   data() {
     return {
-      SectionData
+      SectionData,
+      user: {}
     }
   },
   mounted() {
