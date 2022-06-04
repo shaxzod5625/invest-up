@@ -23,9 +23,14 @@ export default {
   },
   computed: {
   },
-  async mounted () {
-    await this.$store.dispatch('fetchProjects')
-    this.projects = this.$store.getters.getProjects
+  methods: {
+    async getProjects() {
+      await this.$store.dispatch('fetchProjects')
+      this.projects = this.$store.getters.getProjects
+    }
+  },
+  mounted () {
+    this.getProjects()
   },
 
 };
