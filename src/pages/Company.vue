@@ -17,12 +17,22 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
+import { mapState } from 'vuex';
+
 export default {
-  name: 'Profile',
+  name: 'Company',
   data () {
     return {
       SectionData
     }
-  }
+  },
+  computed: {
+    ...mapState([
+      'company',
+    ])
+  },
+  async mounted () {
+    await this.$store.dispatch('getCompany', this.$router.currentRoute.params.id)
+  },
 }
 </script>

@@ -14,7 +14,7 @@ export default {
     }
   },
   actions: {
-    async getAllCompanies({ commit }) {
+    async getCompanies({ commit }) {
       try {
         const res = await Api().get('/companies')
         commit('setCompanies', res.data)
@@ -23,9 +23,9 @@ export default {
         throw e
       }
     },
-    async getCompany({ commit }, id) {
+    async getCompany({ commit }, alias) {
       try {
-        const res = await Api().get(`/companies/${id}`)
+        const res = await Api().get(`/company/${alias}`)
         commit('setCompany', res.data)
       } catch (e) {
         commit('error', e.response.data);

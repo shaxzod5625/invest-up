@@ -32,10 +32,11 @@ const routes = [
     props: true
   },
   {
-    path: '/item-details',
+    path: '/item-details/:alias',
     name: 'itemDetails',
     meta: { auth: false },
-    component: () => import('../pages/ItemDetails.vue')
+    component: () => import('../pages/ItemDetails.vue'),
+    props: true
   },
   {
     path: '/item-details-v2',
@@ -147,10 +148,11 @@ const routes = [
     component: () => import('../pages/DepositEnfties.vue')
   },
   {
-    path: '/company',
+    path: '/company/:alias',
     name: 'company',
     meta: { auth: false },
-    component: () => import('../pages/Company.vue')
+    component: () => import('../pages/Company.vue'),
+    props: true
   },
   {
     path: '/account',
