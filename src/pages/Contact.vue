@@ -5,7 +5,7 @@
         <!-- Header main -->
         <HeaderMain></HeaderMain>
         <!-- hero -->
-        <HeroFour classname="hero-title" :title="SectionData.breadcrumbData.breadcrumbListSeven.title" :lists="SectionData.breadcrumbData.breadcrumbListSeven.navList"></HeroFour>
+        <HeroFour classname="hero-title" :title="'Как мы можем вам помочь?'" :lists="SectionData.breadcrumbData.breadcrumbListSeven.navList"></HeroFour>
     </header>
     <!-- contact section -->
     <ContactSection></ContactSection>

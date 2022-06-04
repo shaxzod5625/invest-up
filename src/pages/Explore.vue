@@ -5,7 +5,7 @@
         <!-- Header main -->
         <HeaderMain></HeaderMain>
         <!-- hero -->
-        <HeroFour classname="hero-title" :title="SectionData.breadcrumbData.breadcrumbList.title" :lists="SectionData.breadcrumbData.breadcrumbList.navList"></HeroFour>
+        <HeroFour classname="hero-title" :title="'Все проекты'" :lists="SectionData.breadcrumbData.breadcrumbList.navList"></HeroFour>
     </header>
     <!-- Explore section  -->
     <ExploreSection></ExploreSection>

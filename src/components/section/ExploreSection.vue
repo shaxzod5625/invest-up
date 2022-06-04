@@ -3,11 +3,11 @@
             <div class="container">
                 <!-- filter -->
                 <div class="filter-box">
-                    <h3 class="mb-4">Filter by</h3>
+                    <h3 class="mb-4">Фильтровать по:</h3>
                     <div class="filter-box-filter m-0">
                       <ul class="nav nav-pills nav-pills-s1" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
+                          <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">Все</button>
                         </li>
                         <li class="nav-item" role="presentation">
                           <button class="nav-link" id="pills-art-tab" data-bs-toggle="pill" data-bs-target="#pills-art" type="button" role="tab" aria-controls="pills-art" aria-selected="false">Artworks</button>

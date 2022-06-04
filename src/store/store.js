@@ -39,11 +39,11 @@ let SectionData = {
       title: 'Explore',
       navList: [
         {
-          title: 'Home',
+          title: 'Главная',
           path: ''
         },
         {
-          title: 'Explore'
+          title: 'Все проекты'
         }
       ]
     },
@@ -112,14 +112,14 @@ let SectionData = {
       ]
     },
     breadcrumbListSeven: {
-      title: 'How can we help?',
+      title: 'Как мы можем вам помочь?',
       navList: [
         {
-          title: 'Home',
+          title: 'Главная',
           path: ''
         },
         {
-          title: 'Contact'
+          title: 'Контакты'
         }
       ]
     }
@@ -5037,20 +5037,20 @@ let SectionData = {
       {
         id: 1,
         icon: 'ni-mobile',
-        title: 'Phone:',
-        subTitle: '(123) 123-456'
+        title: 'Номер:',
+        subTitle: '+998 (99) 123-45-67'
       },
       {
         id: 2,
         icon: 'ni-globe',
-        title: 'Web:',
-        subTitle: 'www.softnio.com'
+        title: 'Сайт:',
+        subTitle: 'www.investup.uz'
       },
       {
         id: 3,
         icon: 'ni-mail',
-        title: 'Email:',
-        subTitle: 'office@softnio.com'
+        title: 'Почта:',
+        subTitle: 'investup@gmail.com'
       }
     ]
   },

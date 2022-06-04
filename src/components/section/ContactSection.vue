@@ -5,37 +5,37 @@
                     <div class="col-lg-7">
                         <div class="contact-form-wrap">
                             <div class="section-head-sm">
-                                <h2 class="mb-2">{{ SectionData.contactData.title }}</h2>
-                                <p>{{ SectionData.contactData.subTitle }}</p>
+                                <h2 class="mb-2">Свяжитесь с нами</h2>
+                                <p>Есть вопрос? Нужна помощь? Обращаетесь</p>
                             </div>
                             <form action="#">
                                 <div class="row g-gs">
                                     <div class="col-lg-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInputName" placeholder="Name">
-                                            <label for="floatingInputName">Your name</label>
+                                            <input type="text" class="form-control" id="floatingInputName" placeholder="Имя">
+                                            <label for="floatingInputName">Ваше имя</label>
                                         </div><!-- end form-floating -->
                                     </div><!-- end col -->
                                     <div class="col-lg-6">
                                         <div class="form-floating">
                                             <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
-                                            <label for="floatingInputEmail">Email address</label>
+                                            <label for="floatingInputEmail">Email почта</label>
                                         </div><!-- end form-floating -->
                                     </div><!-- end col -->
                                     <div class="col-lg-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInputPhoneNumber" placeholder="Username">
-                                            <label for="floatingInputPhoneNumber">Phone number</label>
+                                            <input type="text" class="form-control" id="floatingInputPhoneNumber" placeholder="Номер">
+                                            <label for="floatingInputPhoneNumber">Номер</label>
                                         </div><!-- end form-floating -->
                                     </div><!-- end col -->
                                     <div class="col-lg-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                            <label for="floatingTextarea">Type message here...</label>
+                                            <textarea class="form-control" placeholder="Напишите сообщение здесь" id="floatingTextarea"></textarea>
+                                            <label for="floatingTextarea">Напишите ваше сообщение...</label>
                                         </div><!-- end form-floating -->
                                     </div><!-- end col -->
                                     <div class="col-lg-12">
-                                        <button class="btn btn-primary" type="submit">{{ SectionData.contactData.btnText }}</button>
+                                        <button class="btn btn-primary" type="submit">Отправить</button>
                                     </div><!-- end col -->
                                 </div><!-- end row -->
                             </form>
@@ -44,8 +44,8 @@
                     <div class="col-lg-5">
                         <div class="contact-info ps-lg-4 ps-xl-5">
                             <div class="section-head-sm">
-                                <h2 class="mb-2">{{ SectionData.contactData.titleTwo }}</h2>
-                                <p>{{ SectionData.contactData.content }}</p>
+                                <h2 class="mb-2">Наши реквизиты</h2>
+                                <p>Вы можете найти нас по реквизитам ниже</p>
                             </div>
                             <ul class="contact-details">
                                 <li class="d-flex align-items-center" v-for="list in SectionData.contactData.contactList" :key="list.id">
