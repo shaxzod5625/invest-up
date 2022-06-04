@@ -7,9 +7,10 @@
                 <!-- mobile action -->
                 <MobileActionTwo></MobileActionTwo>
                 <!-- heder search -->
-                <HeaderSearch class="header-search-form-s2"></HeaderSearch>
+                <HeaderSearch class=""></HeaderSearch>
                 <!-- Menu -->
-                <MenuTwo classname="btn-primary"></MenuTwo>
+                <!-- <MenuTwo classname="btn-primary"></MenuTwo> -->
+                <Menu classname="btn-primary"></Menu>
                 <div class="header-overlay"></div>
             </div><!-- .header-warp-->
         </div><!-- .container-->
@@ -20,7 +21,7 @@
 import Logo from '@/components/common/Logo.vue'
 import MobileActionTwo from '@/components/common/MobileActionTwo.vue'
 import HeaderSearch from '@/components/common/HeaderSearch.vue'
-import MenuTwo from '@/components/common/MenuTwo.vue'
+import Menu from '@/components/common/Menu.vue'
 
 export default {
   name: 'HeaderDashboard',
@@ -29,7 +30,7 @@ export default {
     Logo,
     MobileActionTwo,
     HeaderSearch,
-    MenuTwo
+    Menu
   }
 }
 </script>

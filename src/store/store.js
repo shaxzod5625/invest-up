@@ -2970,25 +2970,13 @@ let SectionData = {
   authorNav: [
     {
       id: 1,
-      title: 'Profile',
-      path: 'profile',
+      title: 'Профиль',
+      path: 'account',
       icon: 'ni-user'
     },
     {
-      id: 2,
-      title: 'Dashboard',
-      path: 'offers',
-      icon: 'ni-dashboard'
-    },
-    {
-      id: 3,
-      title: 'Account Settings',
-      path: 'account',
-      icon: 'ni-setting'
-    },
-    {
       id: 4,
-      title: 'Help center',
+      title: 'Помощь',
       path: 'contact',
       icon: 'ni-question-alt'
     }
