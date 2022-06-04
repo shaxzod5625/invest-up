@@ -13,4 +13,13 @@ export default createStore({
     projects,
     user
   },
+  state: {
+    error: null
+  },
+  mutations: {
+    error(state, error) {
+      state.error = error.error
+      console.log(state.error);
+    }
+  }
 })
