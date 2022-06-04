@@ -15,18 +15,13 @@ export default {
   components: { 
     Products 
   },
-  data () {
-      return {
-        SectionData,
-        projects: []
-      }
-  },
-  computed: {
-  },
+  data: () => ({
+    SectionData,
+    projects: []
+  }),
   async mounted () {
     await this.$store.dispatch('getProjects')
-    this.projects = this.$store.state.projects
+    this.projects = this.$store.state.projects.projects
   },
-
 };
 </script>
