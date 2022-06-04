@@ -4,16 +4,16 @@
                 <div class="join-form-wrap">
                     <div class="row g-gs align-items-center">
                         <div class="col-lg-3">
-                            <h3 class="form-title">{{ SectionData.newsletterData.title }}</h3>
+                            <h3 class="form-title">Свяжитесь с нами!</h3>
                         </div><!-- end col -->
                         <div class="col-lg-3 col-md-4">
-                            <input class="form-control form-control-s1" type="text" name="name" :placeholder="SectionData.newsletterData.inputText">
+                            <input class="form-control form-control-s1" type="text" name="name" placeholder="Введите почту">
                         </div><!-- end col -->
                         <div class="col-lg-3 col-md-4">
-                            <input class="form-control form-control-s1" type="text" name="email" :placeholder="SectionData.newsletterData.inputTextTwo">
+                            <input class="form-control form-control-s1" type="text" name="email" placeholder="Введите имя">
                         </div><!-- end col -->
                         <div class="col-lg-3 col-md-4">
-                            <a href="#" class="btn btn-primary d-md-block">{{ SectionData.newsletterData.btnText }}</a>
+                            <a href="#" class="btn btn-primary d-md-block">Отправить</a>
                         </div><!-- end col -->
                     </div><!-- row -->
                 </div><!-- end join-form-wrap -->

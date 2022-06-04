@@ -2270,27 +2270,27 @@ let SectionData = {
     howItWorkList: [
       {
         id: 1,
-        icon: 'icon ni ni-wallet icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-primary',
-        title: 'Set up your wallet',
-        content: 'Once you’ve set up your wallet of choice, connect it to EnftyMart by clicking the'
+        icon: 'icon ni ni-user icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-primary',
+        title: 'Авторизуйтесь на платформе',
+        content: 'Создайте аккаунт и начните поддерживать или создавать проекты'
       },
       {
         id: 2,
         icon: 'icon ni ni-setting icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-danger',
-        title: 'Create collection',
-        content: 'Click <a href="profile" class="btn-link">My Collections</a> and set up your collection. Add social links, a description'
+        title: 'Начните поддержку стартапов',
+        content: 'Поддерживай оттечественные проекты и внесите вклад в разивитии вашей страны'
       },
       {
         id: 3,
         icon: 'icon ni ni-camera icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-info',
-        title: 'Add your NFTs',
-        content: 'Upload your work (image, video, audio, or 3D art), add a title and description'
+        title: 'Создайте свой проект',
+        content: 'Для привлечения инвестиций и разивития вашего проекта'
       },
       {
         id: 4,
         icon: 'icon ni ni-money icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-success',
-        title: 'List them for sale',
-        content: 'Choose between auctions, fixed-price listings, and declining-price listings.'
+        title: 'Получайте вознаграждения от проектов',
+        content: 'Поддерживая проекты вы можете получить вознаграждения от этого проекта'
       }
     ]
   },
@@ -2301,6 +2301,7 @@ let SectionData = {
     categoryList: [
       {
         id: 1,
+        alias: '',
         class: 'text-purple',
         icon: 'icon ni ni-camera mb-3 mx-auto icon-circle icon-wbg icon-lg',
         title: 'Artwork',
@@ -6073,74 +6074,66 @@ let SectionData = {
     footerList: [
       {
         id: 1,
-        title: 'Marketplace',
+        title: 'Категории',
         navList: [
           {
-            title: 'All NFTs',
+            title: 'Бизнес',
             path: 'explore'
           },
           {
-            title: 'Art',
+            title: 'Дизайн',
             path: 'explore'
           },
           {
-            title: 'Music',
+            title: 'Мода',
             path: 'explore'
           },
           {
-            title: 'Domain Names',
+            title: 'Спорт',
             path: 'explore'
           },
           {
-            title: 'Virtual World',
+            title: 'Здоровье',
             path: 'explore'
           }
         ]
       },
       {
         id: 2,
-        title: 'My Account',
+        title: 'Аккаунт',
         navList: [
           {
-            title: 'Profile',
-            path: 'profile'
+            title: 'Профиль',
+            path: 'Профиль'
           },
           {
-            title: 'My Offers',
+            title: 'Мои проекты',
             path: 'offers'
           },
           {
-            title: 'Activity',
+            title: 'Настройки',
             path: 'activity'
           },
           {
-            title: 'Sales & Purchase',
-            path: 'purchases-sales'
-          },
-          {
-            title: 'Payment Methods',
+            title: 'Способ оплаты',
             path: 'payment-methods'
           }
         ]
       },
       {
         id: 3,
-        title: 'Company',
+        title: 'Кампания',
         navList: [
           {
-            title: 'About',
-            path: 'about-us'
+            title: 'Главная',
+            path: ''
           },
           {
-            title: 'Blog',
-            path: 'blog'
-          },
-          {
-            title: 'Contact',
+            title: 'Контакты',
             path: 'contact'
           },
           {
-            title: 'Careers',
+            title: 'О нас',
             path: 'about-us'
           }
         ]
@@ -6148,20 +6141,16 @@ let SectionData = {
     ],
     footerListTwo: [
       {
-        title: 'Explore',
+        title: 'Все проекты',
         path: 'explore'
       },
       {
-        title: 'Activity',
-        path: 'activity'
-      },
-      {
-        title: 'Login',
+        title: 'Войти',
         path: 'login'
       },
       {
-        title: 'Wallet',
-        path: 'wallet'
+        title: 'Регистрация',
+        path: 'register'
       }
     ]
   },

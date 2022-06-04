@@ -2,7 +2,7 @@
   <section class="section-space how-it-work-section">
             <div class="container">
                 <!-- section heading -->
-                <SectionHeading :text="title" :content="subtitle" :isMargin="gutterBottom"></SectionHeading>
+                <SectionHeading :text="'Invest UP - это возможность для реализации вашего стартапа'" :content="''" :isMargin="gutterBottom"></SectionHeading>
                 <div class="row g-gs justify-content-center">
                     <div class="col-10 col-sm-6 col-md-6" v-for="item in SectionData.howItWorkData.howItWorkList" :key="item.id" :class="classname">
                         <div class="card-htw text-center" :class="classnameTwo">
