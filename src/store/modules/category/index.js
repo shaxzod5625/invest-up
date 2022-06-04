@@ -5,6 +5,14 @@ export default {
     categories: [],
     category: {},
   },
+  getters: {
+    getCategories(state) {
+      return state.categories
+    },
+    getCategory(state) {
+      return state.category
+    }
+  },
   mutations: {
     setCategories(state, categories) {
       state.categories = categories
@@ -14,7 +22,7 @@ export default {
     }
   },
   actions: {
-    async getAllCategories({ commit }) {
+    async fetchAllCategories({ commit }) {
       try {
         const res = await Api().get('/categories')
         commit('setCategories', res.data)
@@ -23,7 +31,7 @@ export default {
         throw e
       }
     },
-    async getCategory({ commit }, name) {
+    async fetchCategory({ commit }, name) {
       try {
         const res = await Api().get(`/categories/${name}`)
         commit('setCategory', res.data)

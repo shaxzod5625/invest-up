@@ -20,8 +20,8 @@ export default {
     projects: []
   }),
   async mounted () {
-    await this.$store.dispatch('getProjects')
-    this.projects = this.$store.state.projects.projects
+    await this.$store.dispatch('fetchProjects')
+    this.projects = this.$store.getters.getProjects
   },
 };
 </script>
