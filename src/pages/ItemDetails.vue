@@ -6,7 +6,7 @@
         <HeaderMain></HeaderMain>
     </header>
     <!-- item detail section -->
-    <ItemDetailSection></ItemDetailSection>
+    <ItemDetailSection :project="project"></ItemDetailSection>
     <!-- Related product -->
     <RelatedProduct></RelatedProduct>
     <!-- Footer  -->
@@ -21,8 +21,8 @@ export default {
     project: {}
   }),
   async mounted () {
-    await this.$store.dispatch('getProject', this.$route.params.alias)
-    this.project = this.$store.state.project
+    await this.$store.dispatch('fetchProject', this.$route.params.alias)
+    this.project = this.$store.getters.getProject
   },
 }
 </script>

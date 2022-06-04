@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 <template>
     <section class="item-detail-section section-space">
             <div class="container">
@@ -6,7 +5,7 @@
                     <div class="col-lg-6 pe-xl-5">
                         <div class="item-detail-content">
                             <div class="item-detail-img-container mb-4">
-                                <img :src="SectionData.itemDetailData.img" alt="" class="w-100 rounded-3">
+                                <img :src="project.image" alt="" class="w-100 rounded-3">
                             </div><!-- end item-detail-img-container -->
                             <div class="item-detail-tab">
                                 <ul class="nav nav-tabs nav-tabs-s1" id="myTab" role="tablist">
@@ -18,12 +17,8 @@
                                     <div class="tab-pane fade show active" id="owners" role="tabpanel" aria-labelledby="owners-tab">
                                         <div class="item-detail-tab-wrap">
                                             <div class="card-media card-media-s2 mb-3" v-for="item in SectionData.itemDetailData.itemDetailOwnerList" :key="item.id">
-                                                <router-link :to="item.path" class="card-media-img flex-shrink-0 d-block">
-                                                    <img :src="item.avatar" alt="avatar">
-                                                </router-link>
                                                 <div class="card-media-body text-truncate">
-                                                    <p class="fw-semibold text-truncate"><a :href="item.path" class="text-black">{{ item.title }}</a></p>
-                                                    <p class="small">{{ item.subTitle }}</p>
+                                                    <p class="small">{{ item.text }}</p>
                                                 </div>
                                             </div><!-- end card -->
                                         </div><!-- end item-detail-tab-wrap -->
@@ -43,13 +38,13 @@
                                     </div><!-- end tab-pane -->
                                     <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
                                         <div class="item-detail-tab-wrap">
-                                            <div class="card-media card-media-s2 mb-3" v-for="item in SectionData.itemDetailData.itemDetailHistoryList" :key="item.id">
+                                            <div class="card-media card-media-s2 mb-3" v-for="item in project.sponsors" :key="item.id">
                                                 <router-link :to="item.path" class="card-media-img flex-shrink-0 d-block">
-                                                    <img :src="item.avatar" alt="avatar">
+                                                    <img :src="item.image" alt="avatar">
                                                 </router-link>
                                                 <div class="card-media-body text-truncate">
-                                                    <p class="fw-semibold text-black text-truncate">{{ item.title }}</p>
-                                                    <p class="small text-truncate">{{ item.subTitle }}</p>
+                                                    <p class="fw-semibold text-black text-truncate">{{ item.first_name }} {{ last_name }}</p>
+                                                    <p class="small text-truncate">{{ item.email }}</p>
                                                 </div>
                                             </div><!-- end card -->
                                         </div><!-- end item-detail-tab-wrap -->
@@ -60,49 +55,48 @@
                     </div><!-- end col -->
                     <div class="col-lg-6">
                         <div class="item-detail-content mt-4 mt-lg-0">
-                            <h1 class="item-detail-title mb-2">{{ SectionData.itemDetailData.title }}</h1>
-                            <div class="item-detail-meta d-flex flex-wrap align-items-center mb-3">
-                                <span class="item-detail-text-meta">{{ SectionData.itemDetailData.metaText }}</span>
-                                <span class="dot-separeted"></span>
-                                <span class="item-detail-text-meta">{{ SectionData.itemDetailData.metaTextTwo }}</span>
-                                <span class="dot-separeted"></span>
-                                <span class="item-detail-text-meta" v-html="SectionData.itemDetailData.metaTextThree"></span>
-                            </div>
-                            <p class="item-detail-text mb-4">{{ SectionData.itemDetailData.content }}</p>
+                            <h1 class="item-detail-title mb-2">{{ project.title }}</h1>
                             <div class="item-credits">
                                 <div class="row g-4">
-                                    <div class="col-xl-6" v-for="item in SectionData.itemDetailData.itemDetailList" :key="item.id">
+                                    <div class="col-xl-6">
                                         <div class="card-media card-media-s1">
-                                            <router-link :to="item.path" class="card-media-img flex-shrink-0 d-block">
-                                                <img :src="item.avatar" alt="avatar">
-                                            </router-link>
                                             <div class="card-media-body">
-                                                <router-link :to="item.path" class="fw-semibold">{{ item.title }}</router-link>
-                                                <p class="fw-medium small">{{ item.subTitle }}</p>
-                                            </div>
-                                        </div><!-- end card -->
-                                    </div><!-- end col-->
-                                    <div class="col-xl-12" v-for="item in SectionData.itemDetailData.itemDetailListTwo" :key="item.id">
-                                        <div class="card-media card-media-s1">
-                                            <router-link :to="item.path" class="card-media-img flex-shrink-0 d-block">
-                                                <img :src="item.avatar" alt="avatar">
-                                            </router-link>
-                                            <div class="card-media-body">
-                                                <p class="fw-semibold text-black">{{ item.title }}</p>
-                                                <span class="fw-medium small">{{ item.subTitle }}</span>
+                                                <router-link :to="project" class="fw-semibold">{{ project.company_title }}</router-link>
+                                                <p class="fw-medium small">{{ project.company_title }}</p>
                                             </div>
                                         </div><!-- end card -->
                                     </div><!-- end col-->
                                 </div><!-- end row -->
                             </div><!-- end row -->
+                            <div class="item-amount d-flex justify-content-between">
+                                <div class="">
+                                    <p class="item-detail-text">
+                                        0
+                                    </p>
+                                    <p class="item-detail-text">
+                                        Из
+                                    </p>
+                                    <p class="item-detail-text">
+                                        {{ project.target }}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="item-detail-text">
+                                        {{ project.total_sponsors }} спонсора
+                                    </p>
+                                    <p class="item-detail-text">
+                                        {{ getDedline(project.deadline) }}
+                                    </p>
+                                </div>
+                            </div>
                             <div class="item-detail-btns mt-4">
                                 <ul class="btns-group d-flex">
                                     <li class="flex-grow-1">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#placeBidModal" class="btn btn-primary d-block">{{ SectionData.itemDetailData.btnText }}</a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#placeBidModal" class="btn btn-primary d-block">Поддержать</a>
                                     </li>
                                     <li class="flex-grow-1">
                                         <div class="dropdown">
-                                            <a href="#" class="btn bg-dark-dim d-block" data-bs-toggle="dropdown">{{ SectionData.itemDetailData.btnTextTwo }}</a>
+                                            <a href="#" class="btn bg-dark-dim d-block" data-bs-toggle="dropdown">Поделиться</a>
                                             <div class="dropdown-menu card-generic p-2 keep-open w-100 mt-1">
                                                 <router-link :to="icon.path" class="dropdown-item card-generic-item" v-for="(icon, i) in SectionData.socialShareList" :key="i"><em class="ni me-2" :class="icon.btnClass"></em>{{ icon.title }}</router-link>
                                             </div>
@@ -151,10 +145,22 @@ import SectionData from '@/store/store.js'
 
 export default {
   name: 'ItemDetailSection',
+  props: ['project'],
   data () {
     return {
       SectionData
     }
-  }
+  },
+methods: {
+    getDedline (dedline) {
+        let currebntDate = new Date();
+        let dedlineDate = new Date(dedline);
+        let diff = dedlineDate.getTime() - currebntDate.getTime();
+        let days = Math.abs(Math.floor(diff / (1000 * 60 * 60 * 24)))
+        let hours = Math.abs(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+        let minutes = Math.abs(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
+        return `${days} ${days > 1 ? 'дней' : 'день'} ${hours} часов ${minutes} минут`;
+    }
+}
 }
 </script>

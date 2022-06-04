@@ -1896,19 +1896,19 @@ let SectionData = {
       {
         id: 1,
         isActive: 'active',
-        title: 'Owners',
+        title: 'Проекты',
         slug: 'owners-tab',
         bsTarget: '#owners'
       },
       {
         id: 2,
-        title: 'Bids',
+        title: 'Комментарии',
         slug: 'bids-tab',
         bsTarget: '#bids'
       },
       {
         id: 3,
-        title: 'History',
+        title: 'Спонсоры',
         slug: 'history-tab',
         bsTarget: '#history'
       },
@@ -1916,24 +1916,7 @@ let SectionData = {
     itemDetailOwnerList: [
       {
         id: 1,
-        title: 'French Montana',
-        subTitle: '450 editions not for sale',
-        avatar: require('@/images/thumb/avatar-4.jpg'),
-        path: '/author'
-      },
-      {
-        id: 2,
-        title: 'Beejaey',
-        subTitle: '6 editions not for sale',
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        path: '/author'
-      },
-      {
-        id: 3,
-        title: 'Tom Dracula',
-        subTitle: '24 editions not for sale',
-        avatar: require('@/images/thumb/avatar-6.jpg'),
-        path: '/author'
+        text: 'lorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asl'
       }
     ],
     itemDetailOwnerListTwo: {
