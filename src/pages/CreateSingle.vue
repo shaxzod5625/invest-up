@@ -99,8 +99,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <button @click.prevent="addPlan" class="btn btn-outline-dark mb-3" type="button">Add plan</button>
-                            <button class="btn btn-primary d-block" type="submit">Submit</button>
+                            <div>
+                                <button @click.prevent="addPlan" class="btn btn-outline-dark" type="button">Add plan</button>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <button class="btn btn-primary d-block" type="submit">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div><!-- row-->
@@ -173,7 +177,7 @@ export default {
         this.project.image = this.$refs.fileInput2.files[0];
     },
     async fetchCategory() {
-        await this.$store.dispatch('fetchAllCategories');
+        await this.$store.dispatch('fetchCategories');
         this.project.options = this.$store.getters.getCategories;
     },
     async step1() {

@@ -15,8 +15,7 @@
         </li>
       </ul>
       <ul v-else  class="menu-btns">
-        
-        <li><ButtonLink :text="'Создать проект'" link="/wallet" classname="btn" :class="classname"></ButtonLink></li>
+        <li><ButtonLink :text="'Создать проект'" link="/create-single" classname="btn" :class="classname"></ButtonLink></li>
         <li>
           <ThemeSwitcher></ThemeSwitcher>
         </li>

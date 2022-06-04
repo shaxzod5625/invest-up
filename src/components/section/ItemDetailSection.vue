@@ -17,7 +17,7 @@
                                     <div class="tab-pane fade show active" id="owners" role="tabpanel" aria-labelledby="owners-tab">
                                         <div class="item-detail-tab-wrap">
                                             <div class="card-media card-media-s2 mb-3" v-for="item in SectionData.itemDetailData.itemDetailOwnerList" :key="item.id">
-                                                <div class="card-media-body text-truncate">
+                                                <div class="card-media-body">
                                                     <p class="small">{{ item.text }}</p>
                                                 </div>
                                             </div><!-- end card -->
@@ -26,6 +26,12 @@
                                     <div class="tab-pane fade" id="bids" role="tabpanel" aria-labelledby="bids-tab">
                                         <div class="item-detail-tab-wrap">
                                             <Comments class="mb-5" :comments="project.comments"></Comments>
+                                            <div v-if="token">
+                                                <Form @refresh="refresh" class="mt-4"></Form>
+                                            </div>
+                                            <div class="item-detail-text" v-else>
+                                                Комментарии могут отправлять только авторизованные пользователи.
+                                            </div>
                                         </div><!-- end item-detail-tab-wrap -->
                                     </div><!-- end tab-pane -->
                                     <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
@@ -68,7 +74,7 @@
                             <div class="item-amount d-flex justify-content-between">
                                 <div class="">
                                     <p class="item-detail-text">
-                                        0
+                                        {{ project.collected }}
                                     </p>
                                     <p class="item-detail-text">
                                         Из
@@ -79,7 +85,7 @@
                                 </div>
                                 <div>
                                     <p class="item-detail-text">
-                                        {{ project.total_sponsors }} спонсора
+                                        {{ project.total_sponsors }} спонсор
                                     </p>
                                     <p class="item-detail-text">
                                         {{ getDedline(project.deadline) }}
@@ -104,12 +110,6 @@
                         </div><!-- end item-detail-content -->
                     </div><!-- end col -->
                 </div><!-- end row -->
-                <div v-if="token">
-                    <Form @refresh="refresh" class="mt-4"></Form>
-                </div>
-                <div class="item-detail-text" v-else>
-                    Комментарии могут отправлять только авторизованные пользователи.
-                </div>
             </div><!-- .container -->
              <!-- Modal -->
             <div class="modal fade" id="placeBidModal" tabindex="-1" aria-hidden="true">

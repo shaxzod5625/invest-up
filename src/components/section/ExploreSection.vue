@@ -120,11 +120,7 @@ export default {
     },
     async sortByCategory(alias) {
       await this.$store.dispatch('fetchCategory', alias)
-      if (this.$store.getters.getCategory.projects && this.$store.getters.getCategory.projects.length > 0) {
-        this.projects = this.$store.getters.getCategory.projects
-      } else {
-        this.projects = []
-      }
+      this.projects = this.$store.getters.getCategory
     },
     // set active class on button
     getActiveClass(id) {

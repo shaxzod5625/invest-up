@@ -1896,7 +1896,7 @@ let SectionData = {
       {
         id: 1,
         isActive: 'active',
-        title: 'Проекты',
+        title: 'Описание',
         slug: 'owners-tab',
         bsTarget: '#owners'
       },
@@ -1916,7 +1916,7 @@ let SectionData = {
     itemDetailOwnerList: [
       {
         id: 1,
-        text: 'lorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asl'
+        text: 'lorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asllorem100 as asd asdf aw Wqw adasg aw aw WGADG AWDN AWOEAW OAWOALD LAWNE Ml las gkasngm aken alg akwe gasgals als glaskm glasmgl asaskdgml asmldgkm asl'
       }
     ],
     itemDetailOwnerListTwo: {
