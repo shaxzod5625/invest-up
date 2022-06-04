@@ -5,6 +5,14 @@ export default {
     projects: [],
     project: {},
   },
+  getters: {
+    getProjects(state) {
+      return state.projects;
+    },
+    getProject(state) {
+      return state.project;
+    }
+  },
   mutations: {
     setProjects(state, projects) {
       state.projects = projects
@@ -14,7 +22,7 @@ export default {
     }
   },
   actions: {
-    async getProjects({ commit }) {
+    async fetchProjects({ commit }) {
       try {
         const res = await Api().get('/projects')
         commit('setProjects', res.data)
@@ -35,7 +43,7 @@ export default {
         throw e
       }
     },
-    async getProject({ commit }, alias) {
+    async fetchProject({ commit }, alias) {
       try {
         const res = await Api().get(`/project/${alias}`)
         commit('setProject', res.data)
