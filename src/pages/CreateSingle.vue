@@ -140,10 +140,10 @@ export default {
             title: '',
             price: '',
             content: '',
-            project_id: 1
+            project_id: ''
         }
     ],
-    currentStep: 3,
+    currentStep: 1,
   }),
   mounted () {
     /*  ============== Unlock once purchased Checkbox switcher ============= */
@@ -203,8 +203,7 @@ export default {
             title: '',
             price: '',
             content: '',
-            // project_id: this.$store.getters.getProjectId
-            project_id: 1
+            project_id: this.$store.getters.getProjectId
         });
     },
     async submit() {
