@@ -6,20 +6,14 @@
                 </div>
                  </router-link>
         <div class="card-body p-4">
-            <router-link :to="{
-                name: 'itemDetails',
-                params: { alias: project.alias },
-            }" class="">
+            <router-link :to="`/item-details/${project.alias}`" class="">
                 <h5 class="card-title text-truncate mb-0">{{ project.title }}</h5>
             </router-link>
 
             <div class="card-author mb-1 d-flex align-items-center">
                 <span class="me-1 card-author-by">Кампания</span>
                 <div class="custom-tooltip-wrap">
-                    <router-link :to="{
-                        name: 'Company',
-                        params: { alias: project.company_alias },
-                    }" class="custom-tooltip author-link">
+                    <router-link :to="`/company/${project.company_alias}`" class="custom-tooltip author-link">
                         {{ project.company_title }}
                     </router-link>
 
@@ -35,10 +29,8 @@
                     <span class="card-price-number">&dollar; {{ project.collected }}</span>
                 </div>
             </div><!-- end card-price-wrap -->
-            <router-link :to="{
-                name: 'itemDetails',
-                params: { alias: project.alias },
-            }" class="btn btn-sm btn-primary">Поддержать</router-link>
+            <router-link :to="`/item-details/${project.alias}`" class="btn btn-sm btn-primary">
+            Поддержать</router-link>
         </div><!-- end card-body -->
         <!-- <router-link
                     class="details"
