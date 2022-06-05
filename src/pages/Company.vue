@@ -5,7 +5,7 @@
           <!-- Header main -->
           <HeaderDashboard></HeaderDashboard>
           <!-- hero -->
-          <AuthorHero avatarSize="avatar-3" :isCopyInput="true" :coverimg="SectionData.authorPersonalData.coverImg" :img="SectionData.authorPersonalData.img" :title="SectionData.authorPersonalData.title" :username="SectionData.authorPersonalData.userName" :btntext="SectionData.authorPersonalData.btnText" :btnlink="SectionData.authorPersonalData.btnLink"></AuthorHero>
+          <AuthorHero :company="company"></AuthorHero>
         </header>
         <!-- Author section  -->
         <ProfileSection :company="company"></ProfileSection>
