@@ -39,7 +39,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .card-body.card-body-s1 img {
     width: 50px;
 }
