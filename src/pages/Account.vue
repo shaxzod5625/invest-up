@@ -6,7 +6,7 @@
       <HeaderDashboard></HeaderDashboard>
       <!-- hero -->
       <AuthorHero avatarSize="avatar-3" :coverimg="SectionData.authorPersonalData.coverImg"
-        :img="SectionData.authorPersonalData.img" :title="SectionData.authorPersonalData.title"
+        :img="user.image" :title="SectionData.authorPersonalData.title"
         :username="SectionData.authorPersonalData.userName" :btntext="SectionData.authorPersonalData.btnTextTwo"
         :btnlink="SectionData.authorPersonalData.btnLinkTwo"></AuthorHero>
     </header>

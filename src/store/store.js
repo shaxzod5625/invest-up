@@ -2961,7 +2961,7 @@ let SectionData = {
     userName: '@kamran_76',
     btnText: 'Edit Profile',
     img: require('@/images/thumb/avatar-9.jpg'),
-    coverImg: require('@/images/thumb/bread-bg-2.jpg'),
+    coverImg: require('@/images/bg.jpg'),
     btnLink: 'account',
     btnTextTwo: 'Profile',
     btnLinkTwo: 'profile',

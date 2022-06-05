@@ -1,10 +1,11 @@
 <template>
-    <div class="hero-wrap sub-header" :style="{ backgroundImage: 'url(' + coverimg + ')' }">
+    <div class="hero-wrap sub-header" :style="{ backgroundImage: 'url(' + coverimg + ')' }" style="background-repeat: no-repeat; background-size: cover; background-position: center;" >
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="hero-content py-0 d-flex align-items-center">
                         <div class="avatar flex-shrink-0" :class="avatarSize">
-                                <img :src="img" alt="">
+                                
+                                <img :src="require('@/images/user-default.webp')" alt="">
                             </div>
                             <div class="author-hero-content-wrap d-flex flex-wrap justify-content-between ms-3 flex-grow-1">
                                 <div class="author-hero-content me-3">

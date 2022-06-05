@@ -43,12 +43,12 @@
                 </div><!-- end tab-pane -->
                 <div class="tab-pane fade" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
                     <div class="profile-setting-panel">
-                        <h5 class="mb-4">Change Password</h5>
+                        <h5 class="mb-4">Изменить пароль</h5>
                         <div class="mb-3">
                             <label for="oldPassword" class="form-label">Старый пароль</label>
                             <div class="position-relative">
                                 <input type="password" class="form-control form-control-s1" id="oldPassword"
-                                    placeholder="Old password">
+                                    placeholder="Введите старый пароль">
                                 <a href="oldPassword" class="password-toggle" title="Toggle show/hide pasword">
                                     <em class="password-shown ni ni-eye-off"></em>
                                     <em class="password-hidden ni ni-eye"></em>
@@ -59,7 +59,7 @@
                             <label for="newPassword" class="form-label">Новый пароль</label>
                             <div class="position-relative">
                                 <input type="password" class="form-control form-control-s1" id="newPassword"
-                                    placeholder="New password">
+                                    placeholder="Введите новый пароль">
                                 <a href="newPassword" class="password-toggle" title="Toggle show/hide pasword">
                                     <em class="password-shown ni ni-eye-off"></em>
                                     <em class="password-hidden ni ni-eye"></em>
@@ -70,7 +70,7 @@
                             <label for="confirmNewPassword" class="form-label">Повторите новый пароль</label>
                             <div class="position-relative">
                                 <input type="password" class="form-control form-control-s1" id="confirmNewPassword"
-                                    placeholder="Confirm new password">
+                                    placeholder="Введите новый пароль еще раз">
                                 <a href="confirmNewPassword" class="password-toggle" title="Toggle show/hide pasword">
                                     <em class="password-shown ni ni-eye-off"></em>
                                     <em class="password-hidden ni ni-eye"></em>
@@ -78,12 +78,6 @@
                             </div>
                         </div>
                         <button class="btn btn-primary mt-3" type="button">Обновить пароль</button>
-                        <div>
-                            <input type="radio" id="radio">
-                            <label for="radio">
-                                
-                            </label>
-                        </div>
                     </div><!-- end profile-setting-panel -->
                 </div><!-- end tab-pane -->
 
