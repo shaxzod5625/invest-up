@@ -5,7 +5,7 @@
         <!-- Header main -->
         <HeaderMain></HeaderMain>
         <!-- hero -->
-        <HeroFour :title="SectionData.breadcrumbData.breadcrumbListSix.title" :lists="SectionData.breadcrumbData.breadcrumbListSix.navList"></HeroFour>
+        <HeroFour :title="'Поддержать проект'" :lists="SectionData.breadcrumbData.breadcrumbListSix.navList"></HeroFour>
     </header>
     <!-- Blog  -->
     <section class="section-space-b blog-section">

@@ -8,17 +8,18 @@
                     <img src="https://click.uz/click/images/clickog.png" alt="" class="flex-shrink-0">
                     <img src="https://cdn.paycom.uz/documentation_assets/payme_02.svg" alt="" class="flex-shrink-0">
                 </div><!-- end card-body -->
-                <div class="credit-card-form mb-4 col">
-                    <h5 class="mb-3">Credit Card Info</h5>
-                    <input type="text" class="form-control form-control-s1 mb-3" placeholder="Credit card number">
+                <div class="credit-card-form mb-4 px-3">
+                    <h5 class="mb-3">Введите кредитную карту</h5>
+                    <input type="text" class="form-control form-control-s1 mb-3" placeholder="Номер кредитной карты">
                     <div class="row g-3">
                         <div class="col-lg-8">
-                            <input type="text" class="form-control form-control-s1" placeholder="Exp. Date">
+                            <input type="text" class="form-control form-control-s1" placeholder="Срок действия">
                         </div><!-- end col -->
                         <div class="col-lg-4">
                             <input type="text" class="form-control form-control-s1" placeholder="CVC">
                         </div><!-- end col -->
                     </div><!-- end row -->
+                    <button type="button" class="mt-3 btn btn-primary">Поддержать</button>
                 </div>
             </div>
         </div><!-- end sidebar-widget -->

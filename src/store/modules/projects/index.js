@@ -4,7 +4,8 @@ export default {
   state: {
     projects: [],
     project: {},
-    projectId: null
+    projectId: null,
+    projectPlans: []
   },
   getters: {
     getProjects(state) {
@@ -15,6 +16,9 @@ export default {
     },
     getProjectId(state) {
       return state.projectId;
+    },
+    getProjectPlans(state) {
+      return state.projectPlans
     }
   },
   mutations: {
@@ -26,6 +30,9 @@ export default {
     },
     setProjectId(state, data) {
       state.project_id = data.id
+    },
+    setProjectPlans(state, data) {
+      state.projectPlans = data
     }
   },
   actions: {
@@ -84,6 +91,15 @@ export default {
     async createPlan({ commit }, payload) {
       try {
         await Api().post(`/project/plans/add`, payload)
+      } catch (e) {
+        commit('error', e.response.data);
+        throw e
+      }
+    },
+    async fetchProjectPlans({ commit }, alias) {
+      try {
+        const res = await Api().get(`/project/${alias}/plans`)
+        commit('setProjectPlans', res.data)
       } catch (e) {
         commit('error', e.response.data);
         throw e
