@@ -1,9 +1,6 @@
 <template>
     <div class="card card-full">
-        <router-link :to="{
-                name: 'itemDetails',
-                params: { alias: project.alias },
-            }" class="">
+        <router-link :to="`/item-details/${project.alias}`" class="">
         <div class="card-image">
                     <img :src="project.image" class="card-img-top" alt="art image">
                 </div>
@@ -20,7 +17,7 @@
                 <span class="me-1 card-author-by">Кампания</span>
                 <div class="custom-tooltip-wrap">
                     <router-link :to="{
-                        name: 'company',
+                        name: 'Company',
                         params: { alias: project.company_alias },
                     }" class="custom-tooltip author-link">
                         {{ project.company_title }}
@@ -35,7 +32,7 @@
                 </div>
                 <div class="text-sm-end">
                     <span class="card-price-title">Собрано</span>
-                    <span class="card-price-number">&dollar; {{ project.title }}</span>
+                    <span class="card-price-number">&dollar; {{ project.collected }}</span>
                 </div>
             </div><!-- end card-price-wrap -->
             <router-link :to="{
@@ -69,7 +66,6 @@
 export default {
     name: 'Projects',
     props: ['project'],
-
     
 }
 </script>

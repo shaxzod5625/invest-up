@@ -13,7 +13,7 @@
                             <div class=" card-media-img flex-shrink-0" style="width: 100px">
                                 <img :src="item.image" style="width: 100px; height: 100px" alt="media image">
                             </div><!-- card-media-img -->
-                           
+
                             <div class="card-media-body">
                                 <h4>
                                     <!-- <router-link :to="{ name: 'Company', params: { id: item.alias }, }">{{ item.title }}</router-link> -->
@@ -30,14 +30,90 @@
                         </div><!-- end d-flex -->
                         <ul class="btns-group">
                             <li><span class="badge fw-medium bg-info">Не верифицирован</span></li>
-                            <li><a href="#" class="btn-link fw-medium fs-13 text-danger">Удалить</a></li>
+                            <li><a href="#" class="btn-link fw-medium fs-13 text-secondary">Изменить</a></li>
                         </ul>
 
-                        <div class="p-2">
-                            <h2>Проекты кампании</h2>
+
+
+                        <div v-if="item.projects && item.projects.length > 0" class="pt-2">
+                            <h5>Проекты кампании</h5>
                             <div class="company_projects">
-                                
+                                <div class="row g-gs">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6" v-for="project in item.projects"
+                                        :key="project.id">
+                                        <div class="card card-full">
+                                            <router-link :to="{
+                                                name: 'itemDetails',
+                                                params: { alias: project.alias },
+                                            }" class="">
+                                                <div class="card-image">
+                                                    <img :src="project.image" class="card-img-top" alt="art image">
+                                                </div>
+                                            </router-link>
+                                            <div class="card-body p-4">
+                                                <router-link :to="{
+                                                    name: 'itemDetails',
+                                                    params: { alias: project.alias },
+                                                }" class="">
+                                                    <h5 class="card-title text-truncate mb-0">{{ project.title }}</h5>
+                                                </router-link>
+
+                                                <div class="card-author mb-1 d-flex align-items-center">
+                                                    <span class="me-1 card-author-by">Кампания</span>
+                                                    <div class="custom-tooltip-wrap">
+                                                        <router-link :to="{
+                                                            name: 'Company',
+                                                            params: { alias: project.company_alias },
+                                                        }" class="custom-tooltip author-link">
+                                                            {{ project.company_title }}
+                                                        </router-link>
+
+                                                    </div><!-- end custom-tooltip-wrap -->
+                                                </div><!-- end card-author -->
+                                                <div
+                                                    class="card-price-wrap d-flex align-items-center justify-content-sm-between mb-3">
+                                                    <div class="me-5 me-sm-2">
+                                                        <span class="card-price-title">Цель</span>
+                                                        <span class="card-price-number">&dollar; {{ project.target
+                                                        }}</span>
+                                                    </div>
+                                                    <div class="text-sm-end">
+                                                        <span class="card-price-title">Собрано</span>
+                                                        <span class="card-price-number">&dollar; {{ project.collected
+                                                        }}</span>
+                                                    </div>
+                                                </div><!-- end card-price-wrap -->
+                                                <router-link :to="{
+                                                    name: 'itemDetails',
+                                                    params: { alias: project.alias },
+                                                }" class="btn btn-sm btn-primary">Поддержать</router-link>
+                                            </div><!-- end card-body -->
+                                            <!-- <router-link
+                    class="details"
+                    :to="{
+                        name: 'ProductDetail',
+                        params: {
+                        id: product.id,
+                        title: product.title,
+                        metaText: product.metaText,
+                        price: product.price,
+                        priceTwo: product.priceTwo,
+                        imgLg: product.imgLg,
+                        metaText: product.metaText,
+                        metaTextTwo: product.metaTextTwo,
+                        metaTextThree: product.metaTextThree,
+                        content: product.content,
+                        }
+                    }"
+                >
+                </router-link> -->
+                                        </div><!-- end card -->
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div v-else class="pt-2">
+                            <span>У этой кампании нет проектов</span>
                         </div>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
@@ -51,10 +127,13 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
 import { mapGetters } from 'vuex';
-import axios from 'axios'
+// import Products from '@/components/section/Products'
 
 export default {
     name: 'ProfileProjectsSection',
+    components: {
+        // Products,
+    },
     data() {
         return {
             SectionData,
@@ -68,53 +147,6 @@ export default {
         ])
     },
     methods: {
-        async handleSubmitSettings() {
-            const response = await axios.post('user/update', {
-                first_name: this.getUser.first_name,
-                last_name: this.getUser.last_name,
-                phone: this.getUser.phone,
-            }).catch((error) => {
-                if (error.response) {
-                    // Request made and server responded
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    console.log(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log("Error", error.message);
-                }
-            });
-
-            if (response.status === 200) {
-                alert("Изменения успешно сохранены")
-            }
-        },
-        async handleSubmitPassword() {
-            const response = await axios.post('user/update', {
-                password: this.newPass,
-                password_confirmation: this.newPassConfirm,
-            }).catch((error) => {
-                if (error.response) {
-                    // Request made and server responded
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    console.log(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log("Error", error.message);
-                }
-            });
-
-            if (response.status === 200) {
-                alert("Изменения успешно сохранены")
-            }
-        }
     },
     mounted() {
         /*===========SHOW UPLOADED IMAGE ================== */
@@ -173,3 +205,19 @@ export default {
     }
 }
 </script>
+
+<style lang="css" scoped>
+.details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.author-link {
+    z-index: 2;
+    position: relative;
+}
+</style>

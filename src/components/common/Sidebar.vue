@@ -20,6 +20,7 @@
                         </div><!-- end col -->
                     </div><!-- end row -->
                     <button type="button" class="mt-3 btn btn-primary">Поддержать</button>
+                    
                 </div>
             </div>
         </div><!-- end sidebar-widget -->

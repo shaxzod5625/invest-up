@@ -45,7 +45,7 @@
                     <span class="me-1 card-author-by">Кампания</span>
                     <div class="custom-tooltip-wrap">
                       <router-link :to="{
-                        name: 'company',
+                        name: 'Company',
                         params: { alias: project.company_alias },
                       }" class="custom-tooltip author-link">
                         {{ project.company_title }}

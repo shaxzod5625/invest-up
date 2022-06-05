@@ -149,7 +149,7 @@ const routes = [
   },
   {
     path: '/company/:alias',
-    name: 'company',
+    name: 'Company',
     meta: { auth: false },
     component: () => import('../pages/Company.vue'),
     props: true

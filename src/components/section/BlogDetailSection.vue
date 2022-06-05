@@ -1,14 +1,14 @@
 <template>
     <div class="single-entry mb-5 mb-lg-0">
-        <div class="card p-3 mb-5 cursor-pointer" :class="{ 'actived': active === 'on' }">
+        <div class="card p-4 mb-5 cursor-pointer" :class="{ 'actived': active === 'on' }">
             <input hidden id="radio0" type="radio" v-model="active">
             <label for="radio0">
                 <div class="">
-                    <h1 class="mb-1" :class="{ 'activedTitle': active === 'on' }">
+                    <h3 class="mb-1" :class="{ 'activedTitle': active === 'on' }">
                         Поддержать проект без тарифа
-                    </h1>
-                    <p class="comment-desc radio-price mb-2">Вы можете поддержать проект без тарифа, тем самым выбрать желаюмую сумму и просто сделать приятно автору.</p>
-                    <input v-model="desiredAmount" type="number" class="form-control form-control-s1 mb-2 w-50" placeholder="Введите желаемую сумму">
+                    </h3>
+                    <p class="comment-desc radio-price mb-4">Вы можете поддержать проект без тарифа, тем самым выбрать желаюмую сумму и просто сделать приятно автору.</p>
+                    <input v-model="desiredAmount" type="number" class="form-control form-control-s1 mb-2 w-50 " placeholder="Введите желаемую сумму">
                 </div>
             </label>
         </div>
@@ -17,9 +17,9 @@
                 <input hidden type="radio" v-model="active" :value="item.id" :id="`radio${item.id}`" class="mb-3">
                 <label :for="`radio${item.id}`">
                     <div class="d-flex justify-content-between">
-                        <h1 class="mb-1" :class="{ 'activedTitle': item.id === active }">
+                        <h3 class="mb-1" :class="{ 'activedTitle': item.id === active }">
                             {{ item.title }}
-                        </h1>
+                        </h3>
                         <p class="comment-desc radio-price">
                             {{ item.price }} ($)
                         </p>
@@ -59,7 +59,7 @@ export default {
 </script>
 <style>
 .radio-price {
-    font-size: 20px;
+    font-size: 16px;
 }
 .actived {
     border: 2px solid #8651b7;

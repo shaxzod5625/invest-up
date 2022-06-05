@@ -8,7 +8,7 @@
       <div class="row g-gs">
         <div class="col-sm-6 col-md-6 col-lg-3" v-for="company in companies" :key="company.id">
           <router-link :to="{
-                name: 'company',
+                name: 'Company',
                 params: { alias: company.alias },
             }" class="card card-full">
             <img :src="company.image" class="card-img-top" alt="featured miage">
