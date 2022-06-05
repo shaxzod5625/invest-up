@@ -1,12 +1,58 @@
 <template>
     <div class="single-entry mb-5 mb-lg-0">
-        <form action="">
-            <div class="card">
-                <input type="radio" id="radio1">
+        <form action="" class="col-lg-12">
+            <div class="card p-3 mb-3">
+                <input type="radio" v-model="active" value="1" id="radio1" class="mb-3">
                 <label for="radio1">
-                    <h1 class="mb-1">
-                        {{  }}
-                    </h1>
+                    <div class="d-flex justify-content-between">
+                        <h1 class="mb-1">
+                            <!-- {{  }} -->
+                            Hello World
+                        </h1>
+                        <p class="comment-desc radio-price">
+                            <!-- {{  }} -->
+                            400 ($)
+                        </p>
+                    </div>
+                    <p class="comment-desc radio-price">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque cum ratione magni voluptates ex. Placeat repellat excepturi sed fugiat, necessitatibus quidem adipisci provident sint. Cumque tempore quos et ut iste sapiente voluptate adipisci aperiam, provident quisquam vel fugit! Nulla quisquam reprehenderit repudiandae molestiae dolorum? Aliquid alias adipisci natus neque enim impedit in nobis autem unde ut quasi id nesciunt quas beatae ipsa, dolore quidem saepe quia labore? Quisquam ad dolor ut quos reprehenderit ea praesentium dolore sit sequi quis accusantium earum recusandae nam, laboriosam minus et! Ullam rem quia repellendus neque architecto minima molestiae autem iure omnis recusandae? Sapiente, quasi!
+                    </p>
+                </label>
+            </div>
+            <div class="card p-3 mb-3">
+                <input type="radio" v-model="active" value="2" id="radio2" class="mb-3">
+                <label for="radio2">
+                    <div class="d-flex justify-content-between">
+                        <h1 class="mb-1">
+                            <!-- {{  }} -->
+                            Hello World
+                        </h1>
+                        <p class="comment-desc radio-price">
+                            <!-- {{  }} -->
+                            400 ($)
+                        </p>
+                    </div>
+                    <p class="comment-desc radio-price">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque cum ratione magni voluptates ex. Placeat repellat excepturi sed fugiat, necessitatibus quidem adipisci provident sint. Cumque tempore quos et ut iste sapiente voluptate adipisci aperiam, provident quisquam vel fugit! Nulla quisquam reprehenderit repudiandae molestiae dolorum? Aliquid alias adipisci natus neque enim impedit in nobis autem unde ut quasi id nesciunt quas beatae ipsa, dolore quidem saepe quia labore? Quisquam ad dolor ut quos reprehenderit ea praesentium dolore sit sequi quis accusantium earum recusandae nam, laboriosam minus et! Ullam rem quia repellendus neque architecto minima molestiae autem iure omnis recusandae? Sapiente, quasi!
+                    </p>
+                </label>
+            </div>
+            <div class="card p-3 mb-3">
+                <input type="radio" v-model="active" value="3" id="radio3" class="mb-3">
+                <label for="radio3">
+                    <div class="d-flex justify-content-between">
+                        <h1 class="mb-1">
+                            <!-- {{  }} -->
+                            Hello World
+                        </h1>
+                        <p class="comment-desc radio-price">
+                            <!-- {{  }} -->
+                            400 ($)
+                        </p>
+                    </div>
+                    <p class="comment-desc radio-price">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque cum ratione magni voluptates ex. Placeat repellat excepturi sed fugiat, necessitatibus quidem adipisci provident sint. Cumque tempore quos et ut iste sapiente voluptate adipisci aperiam, provident quisquam vel fugit! Nulla quisquam reprehenderit repudiandae molestiae dolorum? Aliquid alias adipisci natus neque enim impedit in nobis autem unde ut quasi id nesciunt quas beatae ipsa, dolore quidem saepe quia labore? Quisquam ad dolor ut quos reprehenderit ea praesentium dolore sit sequi quis accusantium earum recusandae nam, laboriosam minus et! Ullam rem quia repellendus neque architecto minima molestiae autem iure omnis recusandae? Sapiente, quasi!
+                    </p>
                 </label>
             </div>
         </form>
@@ -44,7 +90,8 @@ export default {
   name: 'BlogDetailSection',
   data () {
     return {
-      SectionData
+      SectionData,
+      active: '1'
     }
   },
   mounted() {
@@ -57,3 +104,8 @@ export default {
   }
 }
 </script>
+<style>
+.radio-price {
+    font-size: 20px;
+}
+</style>

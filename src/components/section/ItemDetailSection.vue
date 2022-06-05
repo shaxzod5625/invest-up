@@ -95,7 +95,7 @@
                             <div class="item-detail-btns mt-4">
                                 <ul class="btns-group d-flex">
                                     <li class="flex-grow-1">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#placeBidModal" class="btn btn-primary d-block">Поддержать</a>
+                                        <router-link :to="`/blog-detail/${$route.params.alias}`" class="btn btn-primary d-block">Поддержать</router-link>
                                     </li>
                                     <li class="flex-grow-1">
                                         <div class="dropdown">

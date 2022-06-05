@@ -92,7 +92,7 @@ const routes = [
     component: () => import('../pages/NewsDetail.vue'),
   },
   {
-    path: '/blog-detail',
+    path: '/blog-detail/:alias',
     name: 'blog-details',
     component: () => import('../pages/BlogDetail.vue')
   },
