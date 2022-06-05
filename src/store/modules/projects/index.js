@@ -29,7 +29,7 @@ export default {
       state.project = project
     },
     setProjectId(state, data) {
-      state.project_id = data.id
+      state.projectId = data.id
     },
     setProjectPlans(state, data) {
       state.projectPlans = data

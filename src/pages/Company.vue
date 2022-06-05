@@ -5,7 +5,7 @@
           <!-- Header main -->
           <HeaderDashboard></HeaderDashboard>
           <!-- hero -->
-          <AuthorHero :company="company"></AuthorHero>
+          <AuthorHeroCompany :company="company"></AuthorHeroCompany>
         </header>
         <!-- Author section  -->
         <ProfileSection :company="company"></ProfileSection>
@@ -17,9 +17,13 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
+import AuthorHeroCompany from '@/components/section/AuthorHeroCompany.vue'
 
 export default {
   name: 'Company',
+  components: {
+    AuthorHeroCompany
+  },
   data () {
     return {
       SectionData,

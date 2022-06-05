@@ -2,7 +2,7 @@
   <section class="explore-section pt-4">
     <div class="container">
       <!-- filter -->
-      <div class="filter-box">
+      <!-- <div class="filter-box">
         <h3 class="mb-4">Фильтровать по:</h3>
         <div class="filter-box-filter m-0">
           <ul class="nav nav-pills nav-pills-s1" id="pills-tab">
@@ -16,8 +16,8 @@
                 aria-selected="false">{{ category.title }}</button>
             </li>
           </ul>
-        </div><!-- end filter-box-filter -->
-      </div><!-- end filter-box -->
+        </div>
+      </div> -->
       <div class="gap-2x"></div><!-- end gap -->
       <!-- Product -->
       <div class="" id="">

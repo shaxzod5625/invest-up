@@ -6,7 +6,7 @@
             <div class="hero-content py-0 d-flex align-items-center">
                 <div class="avatar flex-shrink-0" :class="avatarSize">
 
-                    <img :src="require('@/images/user-default.webp')" alt="">
+                    <img :src="img || require('@/images/user-default.webp')" alt="">
                 </div>
                 <div class="author-hero-content-wrap d-flex flex-wrap justify-content-between ms-3 flex-grow-1">
                     <div class="author-hero-content me-3">

@@ -18,9 +18,9 @@
                         <h5 class="mb-4">Изменить профиль</h5>
                         <div class="d-flex align-items-center">
                             <div class="image-result-area avatar avatar-3">
-                                <img id="image-result" :src="require('@/images/thumb/avatar-9.jpg')" alt="">
+                                <img id="image-result" :src="getUser.image || require('@/images/thumb/avatar-9.jpg')" alt="">
                             </div>
-                            <input class="upload-image" data-target="image-result" id="upload-image-file" type="file"
+                            <input class="upload-image" data-target="image-result" ref="upload" @change="uploadFile" id="upload-image-file" type="file"
                                 hidden>
                             <label for="upload-image-file" class="upload-image-label btn">Загрузить фото</label>
                         </div><!-- end d-flex -->
@@ -103,7 +103,8 @@ export default {
         return {
             SectionData,
             newPass: '',
-            newPassConfirm: ''
+            newPassConfirm: '',
+            file: null,
         }
     },
     computed: {
@@ -112,11 +113,19 @@ export default {
         ])
     },
     methods: {
+        uploadFile() {
+            this.file = this.$refs.upload.files[0];
+        },
         async handleSubmitSettings() {
-            const response = await axios.post('user/update', {
-                first_name: this.getUser.first_name,
-                last_name: this.getUser.last_name,
-                phone: this.getUser.phone,
+            let formData = new FormData();
+            formData.append('first_name', this.getUser.first_name);
+            formData.append('last_name', this.getUser.last_name);
+            formData.append('phone', this.getUser.phone);
+            formData.append('image', this.file);
+            const response = await axios.post('user/update', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             }).catch((error) => {
                 if (error.response) {
                     // Request made and server responded

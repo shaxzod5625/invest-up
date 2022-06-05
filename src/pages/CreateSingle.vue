@@ -122,6 +122,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
+import { mapState } from 'vuex';
 export default {
   name: 'CreateSingle',
   data: () => ({
@@ -174,6 +175,11 @@ export default {
     checkboxSwitcher(".checkbox-switcher");
     this.fetchCategory();
   },
+  computed: {
+    ...mapState(
+        ['projectId']
+    )
+  },
   methods: {
     onFileChange() {
         this.company.image = this.$refs.fileInput1.files[0];
@@ -217,11 +223,13 @@ export default {
         });
     },
     async submit() {
+        this.plans[0].project_id = this.$store.getters.getProjectId;
         await this.$store.dispatch('createPlan', {
             plans: this.plans
         });
         this.currentStep = 1;
+        this.$router.push('/profile-projects')
     }
-  }
+  },
 }
 </script>
