@@ -6,7 +6,7 @@
         <div class="profile-setting-panel-wrap">
             <div class="tab-content mt-4" id="myTabContent">
                 <div class="profile-setting-panel">
-                    <h5 class="mb-4">{{ SectionData.creditCardData.title }}</h5>
+                    <h5 class="mb-4">Ваши сохраненные карты:</h5>
                     <div class="row g-gs">
                         <div class="col-md-6" v-for="item in SectionData.creditCardList" :key="item.id">
                             <div class="card card-credit card-full">
