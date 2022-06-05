@@ -7,7 +7,10 @@
                     </div><!-- end col-lg-8 -->
                 </div><!-- end row -->
                 <div>
-                  <div class="row g-gs">
+                  <div class="row g-gs" v-if="company.projects && company.projects.length">
+                    <h2 class="mb-3">
+                      Проекты
+                    </h2>
                     <div class="col-xl-3 col-lg-4 col-sm-6" v-for="project in company.projects" :key="project.id">
                         <div class="card card-full">
                           <router-link :to="`/item-details/${project.alias}`" class="">
@@ -41,6 +44,11 @@
                           </div><!-- end card-body -->
                       </div>
                     </div>
+                  </div>
+                  <div class="row g-gs" v-else>
+                    <h3 class="mb-3">
+                      У этой компании пока нет проектов
+                    </h3>
                   </div>
                 </div><!-- end col-lg-8 -->
             </div><!-- .container -->

@@ -9,7 +9,7 @@
                     <div class="author-hero-content-wrap d-flex flex-wrap justify-content-between ms-3 flex-grow-1">
                         <div class="author-hero-content me-3">
                             <h4 class="hero-author-title mb-1 text-white">{{ company.title }}</h4>
-                            <p class="hero-author-username mb-1 text-white">{{ username }}</p>
+                            <p class="hero-author-username mb-1 text-white">{{ company.address }}</p>
                         </div><!-- author-hero-conetent -->
                         <div class="hero-action-wrap d-flex align-items-center my-2">
                             <div class="dropdown ms-3" v-if="isDropdown">

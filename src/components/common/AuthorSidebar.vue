@@ -2,8 +2,8 @@
     <div>
         <div class="sidebar mb-5 mb-xl-0 row">
             <div class="col-md-12 col-lg-12 col-xl-12 sidebar-widget">
-                <h3 class="mb-3">О нас</h3>
-                <p class="sidebar-text mb-3">{{ content }}</p>
+                <h1 class="mb-3">О нас</h1>
+                <p class="sidebar-text mb-5">{{ content }}</p>
             </div><!-- end col -->
         </div><!-- end sidebar -->
     </div>

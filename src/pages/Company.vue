@@ -32,3 +32,9 @@ export default {
   },
 }
 </script>
+<style scoped>
+  .author-section.section-space {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+</style>
