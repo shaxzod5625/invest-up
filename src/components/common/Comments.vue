@@ -3,7 +3,7 @@
         <li v-for="item in comments" :key="item.id">
             <div class="comment">
                 <div class="avatar flex-shrink-0 me-3">
-                    <img :src="item.img" alt="">
+                    <img :src="item.user.image || require('@/images/user-default.webp')" alt="">
                 </div>
                 <div class="comment-body">
                     <div class="d-flex align-items-center justify-content-between">
