@@ -39,6 +39,10 @@
                                     <input type="text" v-model="company.address" class="form-control form-control-s1" placeholder="Введите адрес">
                                 </div>
                             </div>
+                            <div class="mb-4">
+                                <label class="mb-2 form-label">Полное  описание</label>
+                                <textarea name="message" v-model="company.content" class="form-control form-control-s1" placeholder="Введите подробное описание вашей компании"></textarea>
+                            </div>
                             <button class="btn btn-primary" type="submit">Далее</button>
                         </form>
                     </div>
@@ -126,7 +130,8 @@ export default {
         number: '',
         image: '',
         address: '',
-        title: ''
+        title: '',
+        content: ''
     },
     // fields: [{ first: '',last: '' }],
     project: {
@@ -186,6 +191,7 @@ export default {
         form.append('phone', this.company.number);
         form.append('address', this.company.address);
         form.append('title', this.company.title);
+        form.append('content', this.company.content);
         await this.$store.dispatch('addCompany', form);
         this.currentStep = 2;
     },
