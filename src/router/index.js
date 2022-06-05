@@ -161,6 +161,12 @@ const routes = [
     component: () => import('../pages/Account.vue')
   },
   {
+    path: '/profile-projects',
+    name: 'profile-projects',
+    meta: { auth: true },
+    component: () => import('../pages/ProfileProjects.vue')
+  },
+  {
     path: '/payment-methods',
     name: 'payment-methods',
     meta: { auth: true },

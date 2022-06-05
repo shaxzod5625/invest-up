@@ -92,6 +92,7 @@ import RedeemSection from './components/section/RedeemSection.vue';
 import DepositSection from './components/section/DepositSection.vue';
 import ProfileSection from './components/section/ProfileSection.vue';
 import AccountSection from './components/section/AccountSection.vue';
+import ProfileProjectsSection from './components/section/ProfileProjectsSection.vue';
 import PaymentMethodSection from './components/section/PaymentMethodSection.vue';
 import SellerSettingSection from './components/section/SellerSettingSection.vue';
 import NotificationSection from './components/section/NotificationSection.vue';
@@ -163,6 +164,7 @@ app.component('RedeemSection', RedeemSection)
 app.component('DepositSection', DepositSection)
 app.component('ProfileSection', ProfileSection)
 app.component('AccountSection', AccountSection)
+app.component('ProfileProjectsSection', ProfileProjectsSection)
 app.component('PaymentMethodSection', PaymentMethodSection)
 app.component('SellerSettingSection', SellerSettingSection)
 app.component('NotificationSection', NotificationSection)

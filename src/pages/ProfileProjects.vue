@@ -15,9 +15,9 @@
       <div class="container">
         <div class="row">
           <!-- user sidebar -->
-          <UserSidebar :title="SectionData.accountSidebarData.title" :lists="SectionData.accountSidebarData.navList"
+          <UserSidebar :title="SectionData.projectsSidebarData.title" :lists="SectionData.projectsSidebarData.navList"
             :navs="SectionData.editProfileData.editProfileTabNavMobile"></UserSidebar>
-          <AccountSection></AccountSection>
+          <ProfileProjectsSection></ProfileProjectsSection>
         </div><!-- end row -->
       </div><!-- end container -->
     </section><!-- end user-panel-section -->
@@ -30,7 +30,7 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
 export default {
-  name: 'Account',
+  name: 'Profile Projects',
   data() {
     return {
       SectionData,

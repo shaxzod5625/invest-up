@@ -27,18 +27,22 @@
                         <div class="row mt-4">
                             <div class="col-lg-6 mb-3">
                                 <label for="displayName" class="form-label">Имя</label>
-                                <input type="text" v-model="getUser.first_name" id="displayName" class="form-control form-control-s1">
+                                <input type="text" v-model="getUser.first_name" id="displayName"
+                                    class="form-control form-control-s1">
                             </div><!-- end col -->
                             <div class="col-lg-6 mb-3">
                                 <label for="displayUserName" class="form-label">Фамилия</label>
-                                <input type="text" v-model="getUser.last_name" id="displaySursName" class="form-control form-control-s1">
+                                <input type="text" v-model="getUser.last_name" id="displaySursName"
+                                    class="form-control form-control-s1">
                             </div><!-- end col -->
                             <div class="col-lg-6 mb-3">
                                 <label for="displayUserName" class="form-label">Номер телефона</label>
-                                <input type="text" v-model="getUser.phone" id="displayPhone" class="form-control form-control-s1">
+                                <input type="text" v-model="getUser.phone" id="displayPhone"
+                                    class="form-control form-control-s1">
                             </div><!-- end col -->
                         </div><!-- end row -->
-                        <button class="btn btn-primary mt-3" type="button">Обновить профиль</button>
+                        <button class="btn btn-primary mt-3" @click.prevent="handleSubmitSettings"
+                            type="button">Обновить профиль</button>
                     </div><!-- end profile-setting-panel -->
                 </div><!-- end tab-pane -->
                 <div class="tab-pane fade" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
@@ -58,7 +62,7 @@
                         <div class="mb-3">
                             <label for="newPassword" class="form-label">Новый пароль</label>
                             <div class="position-relative">
-                                <input type="password" class="form-control form-control-s1" id="newPassword"
+                                <input type="password" v-model="newPass" class="form-control form-control-s1" id="newPassword"
                                     placeholder="Введите новый пароль">
                                 <a href="newPassword" class="password-toggle" title="Toggle show/hide pasword">
                                     <em class="password-shown ni ni-eye-off"></em>
@@ -69,7 +73,7 @@
                         <div class="mb-3">
                             <label for="confirmNewPassword" class="form-label">Повторите новый пароль</label>
                             <div class="position-relative">
-                                <input type="password" class="form-control form-control-s1" id="confirmNewPassword"
+                                <input type="password" v-model="newPassConfirm"  class="form-control form-control-s1" id="confirmNewPassword"
                                     placeholder="Введите новый пароль еще раз">
                                 <a href="confirmNewPassword" class="password-toggle" title="Toggle show/hide pasword">
                                     <em class="password-shown ni ni-eye-off"></em>
@@ -77,7 +81,8 @@
                                 </a>
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-3" type="button">Обновить пароль</button>
+                        <button class="btn btn-primary mt-3" @click.prevent="handleSubmitPassword"
+                            type="button">Обновить пароль</button>
                     </div><!-- end profile-setting-panel -->
                 </div><!-- end tab-pane -->
 
@@ -90,18 +95,70 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
 import { mapGetters } from 'vuex';
+import axios from 'axios'
 
 export default {
     name: 'AccountSection',
     data() {
         return {
             SectionData,
+            newPass: '',
+            newPassConfirm: ''
         }
     },
     computed: {
         ...mapGetters([
             'getUser',
         ])
+    },
+    methods: {
+        async handleSubmitSettings() {
+            const response = await axios.post('user/update', {
+                first_name: this.getUser.first_name,
+                last_name: this.getUser.last_name,
+                phone: this.getUser.phone,
+            }).catch((error) => {
+                if (error.response) {
+                    // Request made and server responded
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log("Error", error.message);
+                }
+            });
+            
+            if (response.status === 200) {
+                alert("Изменения успешно сохранены")
+            }
+        },
+        async handleSubmitPassword() {
+            const response = await axios.post('user/update', {
+                password: this.newPass,
+                password_confirmation: this.newPassConfirm,
+            }).catch((error) => {
+                if (error.response) {
+                    // Request made and server responded
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log("Error", error.message);
+                }
+            });
+            
+            if (response.status === 200) {
+                alert("Изменения успешно сохранены")
+            }
+        }
     },
     mounted() {
         /*===========SHOW UPLOADED IMAGE ================== */

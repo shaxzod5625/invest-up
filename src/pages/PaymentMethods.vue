@@ -5,7 +5,7 @@
           <!-- Header main -->
           <HeaderDashboard></HeaderDashboard>
           <!-- hero -->
-          <AuthorHero avatarSize="avatar-3" :coverimg="SectionData.authorPersonalData.coverImg" :img="SectionData.authorPersonalData.img" :title="SectionData.authorPersonalData.title" :username="SectionData.authorPersonalData.userName" :btntext="SectionData.authorPersonalData.btnTextTwo" :btnlink="SectionData.authorPersonalData.btnLinkTwo"></AuthorHero>
+          <AuthorHero avatarSize="avatar-3" :coverimg="SectionData.authorPersonalData.coverImg" :img="user.img" :title="user.first_name" :username="user.email" :btntext="SectionData.authorPersonalData.btnTextTwo" :btnlink="SectionData.authorPersonalData.btnLinkTwo"></AuthorHero>
         </header>
         <!-- account section -->
         <section class="user-panel-section section-space">
@@ -29,7 +29,20 @@ export default {
   name: 'PaymentMethods',
   data () {
     return {
-      SectionData
+      SectionData,
+      user: {}
+    }
+  },
+  mounted() {
+    this.getUser()
+  },
+  methods: {
+    async getUser() {
+      await this.$store.dispatch('fetchUser')
+      this.user = this.$store.getters.getUser
+    },
+    refresh() {
+      this.getUser()
     }
   }
 }
