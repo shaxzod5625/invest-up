@@ -1,4 +1,4 @@
-# EnftyMart Vue Template
+# InvestUp project
 
 ## Project setup
 ```
