@@ -213,6 +213,18 @@ const routes = [
     name: 'contact',
     meta: { auth: false },
     component: () => import('../pages/Contact.vue')
+  },
+  {
+    path: '/search/:text',
+    name: 'search',
+    meta: { auth: false },
+    component: () => import('../pages/SearchPage.vue')
+  },
+  {
+    path: '/update-company/:alias',
+    name: 'update-project',
+    meta: { auth: true },
+    component: () => import('../pages/UpdateCompany.vue')
   }
 ];
 

@@ -3,8 +3,6 @@
         <div class="user-panel-title-box">
             <h3>Кампании профиля</h3>
         </div><!-- end user-panel-title-box -->
-
-
         <div class="row g-gs">
             <div class="col-xl-12" v-for="item in getUser.companies" :key="item.id">
                 <div class="card card-full">
@@ -23,18 +21,11 @@
                             </div><!-- end card-media-body -->
                         </div><!-- end card-media -->
                         <div class="card-media mb-3">
-                            <div class="card-media-body pt-5">
-                                <span class="fw-medium fs-13 pt-2">ываававы</span>
-                                <p class="fw-medium text-black fs-14">ыфаваывываыфав</p>
-                            </div>
                         </div><!-- end d-flex -->
                         <ul class="btns-group">
                             <li><span class="badge fw-medium bg-info">Не верифицирован</span></li>
-                            <li><a href="#" class="btn-link fw-medium fs-13 text-secondary">Изменить</a></li>
+                            <li><router-link :to="`/update-company/${item.alias}`" class="btn-link fw-medium fs-13 text-secondary">Изменить</router-link></li>
                         </ul>
-
-
-
                         <div v-if="item.projects && item.projects.length > 0" class="pt-2">
                             <h5 class="pb-3">Проекты кампании</h5>
                             <div class="company_projects">
@@ -50,7 +41,6 @@
                                                 <router-link :to="`/item-details/${project.alias}`" class="">
                                                     <h5 class="card-title text-truncate mb-0">{{ project.title }}</h5>
                                                 </router-link>
-
                                                 <div class="card-author mb-1 d-flex align-items-center">
                                                     <span class="me-1 card-author-by">Кампания</span>
                                                     <div class="custom-tooltip-wrap">
@@ -58,7 +48,6 @@
                                                             class="custom-tooltip author-link">
                                                             {{ project.company_title }}
                                                         </router-link>
-
                                                     </div><!-- end custom-tooltip-wrap -->
                                                 </div><!-- end card-author -->
                                                 <div
@@ -78,25 +67,6 @@
                                                     class="btn btn-sm btn-outline-dark">
                                                     Изменить</router-link>
                                             </div><!-- end card-body -->
-                                            <!-- <router-link
-                    class="details"
-                    :to="{
-                        name: 'ProductDetail',
-                        params: {
-                        id: product.id,
-                        title: product.title,
-                        metaText: product.metaText,
-                        price: product.price,
-                        priceTwo: product.priceTwo,
-                        imgLg: product.imgLg,
-                        metaText: product.metaText,
-                        metaTextTwo: product.metaTextTwo,
-                        metaTextThree: product.metaTextThree,
-                        content: product.content,
-                        }
-                    }"
-                >
-                </router-link> -->
                                         </div><!-- end card -->
                                     </div>
                                 </div>
@@ -120,8 +90,6 @@ import { mapGetters } from 'vuex';
 
 export default {
     name: 'ProfileProjectsSection',
-    components: {
-    },
     data() {
         return {
             SectionData,

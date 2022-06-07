@@ -3,12 +3,12 @@
         <div class="row g-gs">
             <div class="col-lg-12">
                 <div class="form-floating">
-                    <textarea class="form-control" v-model="content" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">Comments</label>
+                    <textarea class="form-control" v-model="content" placeholder="Оставьте комментарии здесь" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Оставьте комментарии здесь</label>
                 </div>
             </div><!-- end col -->
             <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary">Post Comment</button>
+                <button type="submit" class="btn btn-primary">Оставить коммент</button>
             </div><!-- end col -->
         </div><!-- end row -->
     </form>

@@ -43,7 +43,7 @@
                                     <div class="item-detail-tab-wrap" v-if="project.sponsors">
                                         <div class="card-media card-media-s2 mb-3" v-for="item in project.sponsors"
                                             :key="item.id">
-                                            <img :src="item.image" alt="avatar">
+                                            <img class="avatar me-3" :src="item.image || require('@/images/user-default.webp')" alt="avatar">
                                             <div class="card-media-body text-truncate">
                                                 <p class="fw-semibold text-black text-truncate">{{ item.first_name }} {{
                                                         last_name

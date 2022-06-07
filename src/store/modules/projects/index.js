@@ -104,6 +104,15 @@ export default {
         commit('error', e.response.data);
         throw e
       }
+    },
+    async searchProjects({ commit }, text) {
+      try {
+        const res = await Api().get(`projects?search=${text}`)
+        commit('setProjects', res.data)
+      } catch (e) {
+        commit('error', e.response.data)
+        throw e
+      }
     }
   }
 }
